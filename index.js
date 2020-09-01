@@ -371,7 +371,7 @@ client.on('message', (message) => {
 
 client.on('message', message => {
 	if (message.content === '!ping') {
-		message.channel.send('Pong.');
+		message.channel.send('퐁.');
   }
   else if (message.content === `${prefix}사용자정보`) {
     message.channel.send(`사용자 이름: ${message.author.username}\n유저 ID: ${message.author.id}`);
