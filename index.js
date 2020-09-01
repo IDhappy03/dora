@@ -34,19 +34,13 @@ client.on('message', (message) => {
   if(message.content == 'ping') {
     return message.reply('pong');
   }
-
   if(message.content == '4반') {
     return message.reply('https://cdn.discordapp.com/attachments/709920547341074523/750139530895425666/4_.png')
   }
-
-  if(message.content == '봇') {
-    return message.reply('먼저 저장을 하고 add clear command 친다음에 v 표시 누르고 요 링크에 들어간다음에https://dashboard.heroku.com/apps 맨 아래로 내려서 저장하고 봇 테스트 하기')
+  if(message.content == '!!봇') {
+    return message.reply('https://dashboard.heroku.com/apps')
   }
-
-  if(message.content == '!봇 기초') {
-    return message.reply('https://discordjs.guide/additional-info/changes-in-v12.html#string-concatenation');
-  }
-
+  
   else if(message.content.startsWith('!주사위')) {
     let min = 1;
     let max = 6;
@@ -360,21 +354,11 @@ client.on('message', (message) => {
       '빨라지는 태엽',
       '뻐꾸기 알',
       '뿔뿔이 드라이버',
-
-     ]
+      ]
     let min = 0;
     let max = arr.length;
     let index = parseInt(Math.random() * (max - min) + min);
     return message.reply(`${arr[index]} 이라는 도구가 나왔어.`);
-  }
-});
-
-client.on('message', message => {
-	if (message.content === '!ping') {
-		message.channel.send('퐁.');
-  }
-  else if (message.content === `${prefix}사용자정보`) {
-    message.channel.send(`사용자 이름: ${message.author.username}\n유저 ID: ${message.author.id}`);
   }
 });
 
