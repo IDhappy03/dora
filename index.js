@@ -40,11 +40,14 @@ client.on('message', (message) => {
   if(message.content == '!!봇') {
     return message.reply('먼저 저장을 하고 add clear command 친다음에 v 표시 누르고 요 링크에 들어간다음에https://dashboard.heroku.com/apps 맨 아래로 내려서 저장하고 봇 테스트 하기')
   }
-  else if (message.content === `${prefix}사용자정보`) {
-    message.channel.send(`Your username: ${message.author.username}\nYour ID: ${message.author.id}`);
+  else if (message.content === '!사용자 정보') {
+    return message.replay(`Your username: ${message.author.username}\nYour ID: ${message.author.id}`);
   }
   if(message.content == '!!봇 기초') {
     return message.reply('https://discordjs.guide/additional-info/changes-in-v12.html#string-concatenation');
+  }
+  if (message.content === '!ping') {
+    message.channel.send('Pong.');
   }
 
   else if(message.content.startsWith('!주사위')) {
