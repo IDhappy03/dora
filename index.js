@@ -368,6 +368,7 @@ client.on('message', (message) => {
       '빨라지는 태엽',
       '뻐꾸기 알',
       '뿔뿔이 드라이버',
+      
      ]
     let min = 0;
     let max = arr.length;
