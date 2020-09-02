@@ -31,7 +31,7 @@ client.on("guildMemberRemove", (member) => {
 client.on('message', (message) => {
   if(message.author.bot) return;
 
-  if(message.content == 'ping') {
+  if(message.content == '!!ping') {
     return message.reply('pong');
   }
   if(message.content == '4반') {
@@ -44,10 +44,11 @@ client.on('message', (message) => {
   else if(message.content == '!!명령어') {
     let helpImg = 'https://images-ext-1.discordapp.net/external/RyofVqSAVAi0H9-1yK6M8NGy2grU5TWZkLadG-rwqk0/https/i.imgur.com/EZRAPxR.png';
     let commandList = [
-      {name: 'ping', desc: 'pong'},
+      {name: '!!ping', desc: 'pong'},
       {name: '!!명령어', desc: '사용가능한 명령어가 나온다'},
-      {name: '!비밀도구', desc: '도라에몽의 비밀도구가 랜덤으로 나온다'},
-      {name: '!주사위', desc: '1~6사이의 숫자가 랜덤으로 나온다.'},
+      {name: '!!비밀도구', desc: '도라에몽의 비밀도구가 랜덤으로 나온다'},
+      {name: '!!주사위', desc: '1~6사이의 숫자가 랜덤으로 나온다.'},
+      {name: '!!청소', desc: '관리자만 사용할수 있는 명령어이다.'},
     ];
     let commandStr = '';
     let embed = new Discord.RichEmbed()
@@ -65,12 +66,14 @@ client.on('message', (message) => {
     message.channel.send(embed)
   }
 
-  else if(message.content.startsWith('!주사위')) {
+
+
+  else if(message.content.startsWith('!!주사위')) {
     let min = 1;
     let max = 6;
     let dice_num = parseInt(Math.random() * (max - min) + min);
     return message.reply(`${dice_num} (이/가) 나왔습니다.`);
-  } else if(message.content.startsWith('!비밀도구')) {
+  } else if(message.content.startsWith('!!비밀도구')) {
     let arr = [
       '가거라 개',
       '가공인물 계란',
@@ -773,6 +776,7 @@ client.on('message', (message) => {
   }
 });
 
+
 function changeCommandStringLength(str, limitLen = 8) {
   let tmp = str;
   limitLen -= tmp.length;
@@ -782,6 +786,43 @@ function changeCommandStringLength(str, limitLen = 8) {
   }
 
   return tmp;
+}
+
+if(message.content.startsWith('!!청소')) {
+  if(checkPermission(message)) return
+
+  var clearLine = message.content.slice('!!청소 '.length);
+  var isNum = !isNaN(clearLine)
+
+  if(isNum && (clearLine <= 0 || 100 < clearLine)) {
+    message.channel.send("1부터 100까지의 숫자만 입력해주세요.")
+    return;
+  } else if(!isNum) { // c @나긋해 3
+    if(message.content.split('<@').length == 2) {
+      if(isNaN(message.content.split(' ')[2])) return;
+
+      var user = message.content.split(' ')[1].split('<@!')[1].split('>')[0];
+      var count = parseInt(message.content.split(' ')[2])+1;
+      const _limit = 10;
+      let _cnt = 0;
+
+      message.channel.fetchMessages({limit: _limit}).then(collected => {
+        collected.every(msg => {
+          if(msg.author.id == user) {
+            msg.delete();
+            ++_cnt;
+          }
+          return !(_cnt == count);
+        });
+      });
+    }
+  } else {
+    message.channel.bulkDelete(parseInt(clearLine)+1)
+      .then(() => {
+        AutoMsgDelete(message, `<@${message.author.id}> ` + parseInt(clearLine) + "개의 메시지를 삭제했습니다. (이 메세지는 잠시 후에 사라집니다.)");
+      })
+      .catch(console.error)
+  }
 }
 
 client.login(token);742635886998454293
