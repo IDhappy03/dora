@@ -40,6 +40,9 @@ client.on('message', (message) => {
   if(message.content == '!!초대코드') {
     return message.reply('https://discord.com/oauth2/authorize?client_id=742635886998454293&scope=bot')
   }
+  if(message.content == '!!도움') {
+    return message.reply('https://discordjs.guide/additional-info/changes-in-v12.html#string-concatenation')
+  }
 
   else if(message.content == '!!4반') {
     let helpImg = '';
