@@ -63,8 +63,8 @@ client.on('message', (message) => {
     message.channel.send(embed)
   }
 
-  else if(message.content == '초대코드') {
-    let helpImg = 'https://images-ext-1.discordapp.net/external/RyofVqSAVAi0H9-1yK6M8NGy2grU5TWZkLadG-rwqk0/https/i.imgur.com/EZRAPxR.png';
+  else if(message.content == '!!초대코드') {
+    let helpImg = 'https://cdn.discordapp.com/attachments/747789641826172948/750699703758225448/744af0d16a6eddc1.jpg';
     let commandList = [
       {name: '초대코드', desc: 'https://discord.com/api/oauth2/authorize?client_id=742635886998454293&permissions=8&scope=bot'},
 
@@ -74,6 +74,7 @@ client.on('message', (message) => {
       .setAuthor('도라에몽 초대코드', helpImg)
       .setColor('#186de6')
       .setFooter(`❤️`)
+      .setImage('https://cdn.discordapp.com/attachments/747789641826172948/750699703758225448/744af0d16a6eddc1.jpg')
       .setTimestamp()
     
     commandList.forEach(x => {
