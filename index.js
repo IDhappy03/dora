@@ -41,7 +41,6 @@ client.on('message', (message) => {
   else if(message.content == '!!4반') {
     let helpImg = '';
     let commandList = [
-      {name: '', desc: ''},
     ];
     let commandStr = '';
     let embed = new Discord.RichEmbed()
