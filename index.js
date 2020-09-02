@@ -46,7 +46,7 @@ client.on('message', (message) => {
     let commandList = [
       {name: '4반 시간표', desc: '4반의 시간표를 알려준다'},
     ];
-    let commandStr = 'https://discord.com/api/oauth2/authorize?client_id=742635886998454293&permissions=8&scope=bot';
+    let commandStr = '';
     let embed = new Discord.RichEmbed()
       .setAuthor('4반 시간표', helpImg)
       .setColor('#186de6')
@@ -63,24 +63,24 @@ client.on('message', (message) => {
     message.channel.send(embed)
   }
 
-  else if(message.content == '!!초대코드') {
-    let helpImg = '';
+  else if(message.content == '초대코드') {
+    let helpImg = 'https://images-ext-1.discordapp.net/external/RyofVqSAVAi0H9-1yK6M8NGy2grU5TWZkLadG-rwqk0/https/i.imgur.com/EZRAPxR.png';
     let commandList = [
-      {name: '도라에몽', desc: '초대코드이다'},
+      {name: '초대코드', desc: 'https://discord.com/api/oauth2/authorize?client_id=742635886998454293&permissions=8&scope=bot'},
+
     ];
     let commandStr = '';
     let embed = new Discord.RichEmbed()
-      .setAuthor('도라에몽', helpImg)
+      .setAuthor('도라에몽 초대코드', helpImg)
       .setColor('#186de6')
-      .setFooter(``)
-      .setImage('https://discord.com/api/oauth2/authorize?client_id=742635886998454293&permissions=8&scope=bot')
+      .setFooter(`❤️`)
       .setTimestamp()
     
     commandList.forEach(x => {
       commandStr += `• \`\`${changeCommandStringLength(`${x.name}`)}\`\` : **${x.desc}**\n`;
     });
 
-    embed.addField('초대코드', commandStr);
+    embed.addField('초대코드: ', commandStr);
 
     message.channel.send(embed)
   }
