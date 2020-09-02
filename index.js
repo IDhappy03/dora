@@ -60,7 +60,7 @@ client.on('message', (message) => {
       commandStr += `• \`\`${changeCommandStringLength(`${x.name}`)}\`\` : **${x.desc}**\n`;
     });
 
-    embed.addField('Commands: ', commandStr);
+    embed.addField('명령어: ', commandStr);
 
     message.channel.send(embed)
   }
