@@ -48,11 +48,10 @@ client.on('message', (message) => {
       {name: '!!명령어', desc: '사용가능한 명령어가 나온다'},
       {name: '!!비밀도구', desc: '도라에몽의 비밀도구가 랜덤으로 나온다'},
       {name: '!!주사위', desc: '1~6사이의 숫자가 랜덤으로 나온다.'},
-      {name: '!!청소', desc: '고장남.'},
     ];
     let commandStr = '';
     let embed = new Discord.RichEmbed()
-      .setAuthor('도라에몽 명령어!!', helpImg)
+      .setAuthor('도라에몽 명령어', helpImg)
       .setColor('#186de6')
       .setFooter(`도라에몽 BOT ❤️`)
       .setTimestamp()
@@ -65,8 +64,6 @@ client.on('message', (message) => {
 
     message.channel.send(embed)
   }
-
-
 
   else if(message.content.startsWith('!!주사위')) {
     let min = 1;
@@ -775,7 +772,6 @@ client.on('message', (message) => {
     return message.reply(`${arr[index]} 이라는 도구가 나왔어.`);
   }
 });
-
 
 function changeCommandStringLength(str, limitLen = 8) {
   let tmp = str;
