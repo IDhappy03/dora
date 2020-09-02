@@ -46,12 +46,12 @@ client.on('message', (message) => {
     let commandList = [
       {name: '4반 시간표', desc: '4반의 시간표를 알려준다'},
     ];
-    let commandStr = '';
+    let commandStr = 'https://discord.com/api/oauth2/authorize?client_id=742635886998454293&permissions=8&scope=bot';
     let embed = new Discord.RichEmbed()
       .setAuthor('4반 시간표', helpImg)
       .setColor('#186de6')
       .setFooter(``)
-      .setImage('https://cdn.discordapp.com/attachments/709920547341074523/750139530895425666/4_.png')
+      .setImage('')
       .setTimestamp()
     
     commandList.forEach(x => {
