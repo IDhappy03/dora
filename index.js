@@ -41,7 +41,7 @@ client.on('message', (message) => {
   else if(message.content == '!!4반') {
     let helpImg = '';
     let commandList = [
-      {name: '시간표', desc: ''},
+      {name: '', desc: ''},
     ];
     let commandStr = '';
     let embed = new Discord.RichEmbed()
@@ -55,7 +55,7 @@ client.on('message', (message) => {
       commandStr += `• \`\`${changeCommandStringLength(`${x.name}`)}\`\` : **${x.desc}**\n`;
     });
 
-    embed.addField('', commandStr);
+    embed.addField('시간표', commandStr);
 
     message.channel.send(embed)
   }
