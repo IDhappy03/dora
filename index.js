@@ -41,6 +41,7 @@ client.on('message', (message) => {
   else if(message.content == '!!4반') {
     let helpImg = '';
     let commandList = [
+      {name: '4반 시간표', desc: '4반의 시간표를 알려준다'},
     ];
     let commandStr = '';
     let embed = new Discord.RichEmbed()
