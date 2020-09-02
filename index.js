@@ -38,21 +38,29 @@ client.on('message', (message) => {
     return message.reply('https://dashboard.heroku.com/apps')
   }
   
-  if(message.content == '4반') {
-    let img = '';
+  else if(message.content == '!!4반') {
+    let helpImg = '';
+    let commandList = [
+      {name: '시간표', desc: 'https://cdn.discordapp.com/attachments/709920547341074523/750139530895425666/4_.png'},
+    ];
+    let commandStr = '';
     let embed = new Discord.RichEmbed()
-      .setTitle('4반 시간표')
-      .setURL('https://cdn.discordapp.com/attachments/709920547341074523/750139530895425666/4_.png')
-      .setAuthor('d', img, 'https://cdn.discordapp.com/attachments/709920547341074523/750139530895425666/4_.png')
-      .setThumbnail(img)
-      .addBlankField()
-      .addField('4반 시간표', 'https://cdn.discordapp.com/attachments/709920547341074523/750139530895425666/4_.png')
-      .addBlankField()
+      .setAuthor('4반 시간표', helpImg)
+      .setColor('#186de6')
+      .setFooter(``)
+      .setImage('https://cdn.discordapp.com/attachments/709920547341074523/750139530895425666/4_.png')
       .setTimestamp()
-      .setFooter('4반 시간표', img)
+    
+    commandList.forEach(x => {
+      commandStr += `• \`\`${changeCommandStringLength(`${x.name}`)}\`\` : **${x.desc}**\n`;
+    });
+
+    embed.addField('명령어: ', commandStr);
 
     message.channel.send(embed)
-  } else if(message.content == '!!명령어') {
+  }
+  
+ else if(message.content == '!!명령어') {
     let helpImg = 'https://images-ext-1.discordapp.net/external/RyofVqSAVAi0H9-1yK6M8NGy2grU5TWZkLadG-rwqk0/https/i.imgur.com/EZRAPxR.png';
     let commandList = [
       {name: '!!ping', desc: 'pong'},
