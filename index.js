@@ -42,8 +42,8 @@ client.on('message', (message) => {
     let img = '';
     let embed = new Discord.RichEmbed()
       .setTitle('4반 시간표')
-      .setURL('')
-      .setAuthor('', img, '')
+      .setURL('https://cdn.discordapp.com/attachments/709920547341074523/750139530895425666/4_.png')
+      .setAuthor('d', img, 'https://cdn.discordapp.com/attachments/709920547341074523/750139530895425666/4_.png')
       .setThumbnail(img)
       .addBlankField()
       .addField('4반 시간표', 'https://cdn.discordapp.com/attachments/709920547341074523/750139530895425666/4_.png')
