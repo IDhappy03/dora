@@ -40,6 +40,9 @@ client.on('message', (message) => {
   if(message.content == '!!도움') {
     return message.reply('https://discordjs.guide/additional-info/changes-in-v12.html#string-concatenation')
   }
+  if(message.content == '!!제작자') {
+    return message.reply('삐삐야#1950 / IDhappy03')
+  }
 
   else if(message.content == '!!4반') {
     let helpImg = '';
