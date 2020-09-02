@@ -41,7 +41,7 @@ client.on('message', (message) => {
   else if(message.content == '!!4반') {
     let helpImg = '';
     let commandList = [
-      {name: '시간표', desc: 'https://cdn.discordapp.com/attachments/709920547341074523/750139530895425666/4_.png'},
+      {name: '시간표', desc: ''},
     ];
     let commandStr = '';
     let embed = new Discord.RichEmbed()
@@ -55,7 +55,7 @@ client.on('message', (message) => {
       commandStr += `• \`\`${changeCommandStringLength(`${x.name}`)}\`\` : **${x.desc}**\n`;
     });
 
-    embed.addField('명령어: ', commandStr);
+    embed.addField('', commandStr);
 
     message.channel.send(embed)
   }
