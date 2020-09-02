@@ -64,9 +64,10 @@ client.on('message', (message) => {
   }
 
   else if(message.content == '!!초대코드') {
-    let helpImg = 'https://cdn.discordapp.com/attachments/747789641826172948/750699703758225448/744af0d16a6eddc1.jpg';
+    let helpImg = '';
     let commandList = [
-      {name: '초대코드', desc: 'https://discord.com/api/oauth2/authorize?client_id=742635886998454293&permissions=8&scope=bot'},
+      {name: '초대코드', },
+      {desc: ' https://discord.com/api/oauth2/authorize?client_id=742635886998454293&permissions=8&scope=bot'}
 
     ];
     let commandStr = '';
