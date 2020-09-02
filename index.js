@@ -37,9 +37,6 @@ client.on('message', (message) => {
   if(message.content == '!!봇') {
     return message.reply('https://dashboard.heroku.com/apps')
   }
-  if(message.content == '!!초대코드') {
-    return message.reply('https://discord.com/api/oauth2/authorize?client_id=742635886998454293&permissions=8&scope=bot')
-  }
   if(message.content == '!!도움') {
     return message.reply('https://discordjs.guide/additional-info/changes-in-v12.html#string-concatenation')
   }
@@ -62,6 +59,28 @@ client.on('message', (message) => {
     });
 
     embed.addField('시간표', commandStr);
+
+    message.channel.send(embed)
+  }
+
+  else if(message.content == '!!초대코드') {
+    let helpImg = '';
+    let commandList = [
+      {name: '도라에몽', desc: '초대코드이다'},
+    ];
+    let commandStr = '';
+    let embed = new Discord.RichEmbed()
+      .setAuthor('도라에몽', helpImg)
+      .setColor('#186de6')
+      .setFooter(``)
+      .setImage('https://discord.com/api/oauth2/authorize?client_id=742635886998454293&permissions=8&scope=bot')
+      .setTimestamp()
+    
+    commandList.forEach(x => {
+      commandStr += `• \`\`${changeCommandStringLength(`${x.name}`)}\`\` : **${x.desc}**\n`;
+    });
+
+    embed.addField('초대코드', commandStr);
 
     message.channel.send(embed)
   }
@@ -91,9 +110,7 @@ client.on('message', (message) => {
 
     message.channel.send(embed)
   }
-
   
-
   else if(message.content.startsWith('!!주사위')) {
     let min = 1;
     let max = 6;
