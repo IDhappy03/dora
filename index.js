@@ -34,9 +34,6 @@ client.on('message', (message) => {
   if(message.content == '!!ping') {
     return message.reply('pong');
   }
-  if(message.content == '4반') {
-    return message.reply('https://cdn.discordapp.com/attachments/709920547341074523/750139530895425666/4_.png')
-  }
   if(message.content == '!!봇') {
     return message.reply('https://dashboard.heroku.com/apps')
   }
