@@ -41,7 +41,21 @@ client.on('message', (message) => {
     return message.reply('https://dashboard.heroku.com/apps')
   }
   
-  else if(message.content == '!!명령어') {
+  if(message.content == '4반') {
+    let img = '';
+    let embed = new Discord.RichEmbed()
+      .setTitle('4반 시간표')
+      .setURL('')
+      .setAuthor('', img, '')
+      .setThumbnail(img)
+      .addBlankField()
+      .addField('4반 시간표', 'https://cdn.discordapp.com/attachments/709920547341074523/750139530895425666/4_.png')
+      .addBlankField()
+      .setTimestamp()
+      .setFooter('4반 시간표', img)
+
+    message.channel.send(embed)
+  } else if(message.content == '!!명령어') {
     let helpImg = 'https://images-ext-1.discordapp.net/external/RyofVqSAVAi0H9-1yK6M8NGy2grU5TWZkLadG-rwqk0/https/i.imgur.com/EZRAPxR.png';
     let commandList = [
       {name: '!!ping', desc: 'pong'},
