@@ -37,9 +37,6 @@ client.on('message', (message) => {
   if(message.content == '!!봇') {
     return message.reply('https://dashboard.heroku.com/apps')
   }
-  if(message.content == '!!김한별') {
-    return message.reply('우리 한별이');
-  }
 
   else if(message.content == '!!4반') {
     let helpImg = '';
@@ -86,6 +83,8 @@ client.on('message', (message) => {
 
     message.channel.send(embed)
   }
+
+  
 
   else if(message.content.startsWith('!!주사위')) {
     let min = 1;
