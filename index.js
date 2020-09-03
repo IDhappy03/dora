@@ -10,10 +10,10 @@ client.on('message', (message) => {
   if(message.author.bot) return;
 
   if(message.content == '!!ping') {
-    return message.reply('pong');
+    message.channel.send('pong');
   }
   if(message.content == '!!봇') {
-    return message.reply('https://dashboard.heroku.com/apps')
+    message.channel.send('https://dashboard.heroku.com/apps')
   }
   if(message.content == '!!도움') {
     message.reply('https://discordjs.guide/additional-info/changes-in-v12.html#string-concatenation')
