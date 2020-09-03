@@ -19,8 +19,9 @@ client.on('message', (message) => {
     message.channel.send('https://discordjs.guide/additional-info/changes-in-v12.html#string-concatenation')
   }
   if(message.content == '!!출첵') {
-    message.channel.send('아직 어케 만드는지 모름')
+    message.channel.send('될줄알았니?')
   }
+
   
   if(message.content == '!!ㅔㅑㅜㅎ')
     return message.reply('퐁')
