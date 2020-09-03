@@ -11,7 +11,7 @@ client.on('ready', () => {
     '문의는 삐삐야#1950',
   ]
   let state_list_index = 1;
-  let change_delay = 10000; // 이건 초입니당. 1000이 1초입니당.
+  let change_delay = 20000; // 이건 초입니당. 1000이 1초입니당.
 
   function changeState() {
     setTimeout(() => {
