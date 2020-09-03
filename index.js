@@ -4,7 +4,7 @@ const token =process.env.token;
 
 client.on('ready', () => {
   console.log('켰다.');
-  client.user.setPresence({ game: { name: '!help를 쳐보세요.' }, status: 'online' })
+  client.user.setPresence({ game: { name: '듣는중' }, status: 'online' })
 
   let state_list = [
     '!!명령어',
@@ -46,8 +46,6 @@ client.on('message', (message) => {
   if(message.content == '!!그리기') {
     message.channel.send('https://www.youtube.com/watch?v=2SojPurh_rM')
   }
-
-  
   if(message.content == '!!ㅔㅑㅜㅎ') {
     return message.reply('vhd')
   }
@@ -84,7 +82,7 @@ client.on('message', (message) => {
     let commandStr = '';
     let embed = new Discord.RichEmbed()
       .setAuthor('도라에몽 초대코드', helpImg)
-      .setColor('#186de6')
+      .setColor('#FFFFFF')
       .setFooter(`❤️`)
       .setImage('https://cdn.discordapp.com/attachments/747789641826172948/750699703758225448/744af0d16a6eddc1.jpg')
       .setTimestamp()
