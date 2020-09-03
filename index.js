@@ -7,7 +7,7 @@ client.on('ready', () => {
   client.user.setPresence({ game: { name: '!help를 쳐보세요.' }, status: 'online' })
 
   let state_list = [
-    '!!help',
+    '!!명령어',
     '문의는 삐삐야#1950',
   ]
   let state_list_index = 1;
