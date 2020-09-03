@@ -82,7 +82,7 @@ client.on('message', (message) => {
     let commandStr = '';
     let embed = new Discord.RichEmbed()
       .setAuthor('도라에몽 초대코드', helpImg)
-      .setColor('#FFFFFF')
+      .setColor('#CEFFC7')
       .setFooter(`❤️`)
       .setImage('https://cdn.discordapp.com/attachments/747789641826172948/750699703758225448/744af0d16a6eddc1.jpg')
       .setTimestamp()
