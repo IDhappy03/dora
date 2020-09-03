@@ -24,7 +24,7 @@ client.on('message', (message) => {
 
   
   if(message.content == '!!ㅔㅑㅜㅎ')
-    return message.reply('퐁')
+    return message.reply('vhd')
 
   else if(message.content == '!!4반') {
     let helpImg = '';
