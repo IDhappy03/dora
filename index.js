@@ -16,7 +16,7 @@ client.on('message', (message) => {
     message.channel.send('https://dashboard.heroku.com/apps')
   }
   if(message.content == '!!도움') {
-    message.reply('https://discordjs.guide/additional-info/changes-in-v12.html#string-concatenation')
+    message.channel.send('https://discordjs.guide/additional-info/changes-in-v12.html#string-concatenation')
   }
   if(message.content == '!!출첵') {
     message.channel.send('아직 어케 만드는지 모름')
@@ -96,6 +96,7 @@ client.on('message', (message) => {
 
     message.channel.send(embed)
   }
+
   
   else if(message.content.startsWith('!!주사위')) {
     let min = 1;
@@ -801,8 +802,10 @@ client.on('message', (message) => {
     let min = 0;
     let max = arr.length;
     let index = parseInt(Math.random() * (max - min) + min);
-    message.channel.send(`${arr[index]} (이)라는 도구가 나왔어.`);
+    message.channel.send(`${arr[index]} (이)라는 도구가 나왔어.`)
   }
+
+  
 });
 
 function changeCommandStringLength(str, limitLen = 8) {
