@@ -43,6 +43,9 @@ client.on('message', (message) => {
   if(message.content == '!!출첵') {
     message.channel.send('될줄알았니?')
   }
+  if(message.content == '!!그리기') {
+    message.channel.send('https://www.youtube.com/watch?v=2SojPurh_rM')
+  }
 
   
   if(message.content == '!!ㅔㅑㅜㅎ')
