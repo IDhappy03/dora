@@ -19,6 +19,8 @@ client.on('message', (message) => {
     message.reply('https://discordjs.guide/additional-info/changes-in-v12.html#string-concatenation')
   }
   
+  if(message.content == '!!ㅔㅑㅜㅎ')
+    return message.reply('퐁')
 
   else if(message.content == '!!4반') {
     let helpImg = '';
