@@ -11,7 +11,7 @@ client.on('ready', () => {
     '!!명령어'
   ]
   let state_list_index = 1;
-  let change_delay = 20000; // 이건 초입니당. 1000이 1초입니당SSSS.
+  let change_delay = 60000; // 이건 초입니당. 1000이 1초입니당SSSS.
 
   function changeState() {
     setTimeout(() => {
