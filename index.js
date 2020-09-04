@@ -8,6 +8,7 @@ client.on('ready', () => {
 
   let state_list = [
     '문의는 삐삐야#1950',
+    '!!명령어'
   ]
   let state_list_index = 1;
   let change_delay = 20000; // 이건 초입니당. 1000이 1초입니당SSSS.
