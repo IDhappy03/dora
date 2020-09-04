@@ -104,6 +104,7 @@ client.on('message', (message) => {
       {name: '!!주사위', desc: '1~6사이의 숫자가 랜덤으로 나온다.'},
       {name: '!!도움', desc: '초보자 가이드가 나온다.'},
       {name: '!!초대코드', desc: '도라에몽을 초대할 수 있는 코드가 나온다'},
+      {name: '!!qlalfehrn', desc: '도라에몽의 비밀도구가 랜덤으로 나온다.'},
     ];
     let commandStr = '';
     let embed = new Discord.RichEmbed()
