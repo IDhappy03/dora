@@ -121,33 +121,6 @@ client.on('message', (message) => {
 
     message.channel.send(embed)
   }
-
-  else if(message.content == '!!명령어') {
-    let helpImg = 'https://images-ext-1.discordapp.net/external/RyofVqSAVAi0H9-1yK6M8NGy2grU5TWZkLadG-rwqk0/https/i.imgur.com/EZRAPxR.png';
-    let commandList = [
-      {name: '!!ping', desc: 'pong'},
-      {name: '!!명령어', desc: '사용가능한 명령어가 나온다'},
-      {name: '!!비밀도구', desc: '도라에몽의 비밀도구가 랜덤으로 나온다'},
-      {name: '!!주사위', desc: '1~6사이의 숫자가 랜덤으로 나온다.'},
-      {name: '!!도움', desc: '초보자 가이드가 나온다.'},
-      {name: '!!초대코드', desc: '도라에몽을 초대할 수 있는 코드가 나온다'},
-      {name: '!!qlalfehrn', desc: '도라에몽의 비밀도구가 랜덤으로 나온다.'},
-    ];
-    let commandStr = '';
-    let embed = new Discord.RichEmbed()
-      .setAuthor('도라에몽 명령어', helpImg)
-      .setColor('#186de6')
-      .setFooter(`도라에몽 BOT ❤️`)
-      .setTimestamp()
-    
-    commandList.forEach(x => {
-      commandStr += `• \`\`${changeCommandStringLength(`${x.name}`)}\`\` : **${x.desc}**\n`;
-    });
-
-    embed.addField('명령어: ', commandStr);
-
-    message.channel.send(embed)
-  }
   
   else if(message.content.startsWith('!!주사위')) {
     let min = 1;
