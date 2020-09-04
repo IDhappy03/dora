@@ -4,13 +4,13 @@ const token =process.env.token;
 
 client.on('ready', () => {
   console.log('켰다.');
-  client.user.setPresence({ game: { name: '듣는중' }, status: 'online' })
+  client.user.setPresence({ game: { name: '문의는 삐삐야#1950' }, status: 'online' })
 
   let state_list = [
     '문의는 삐삐야#1950',
   ]
   let state_list_index = 1;
-  let change_delay = 20000; // 이건 초입니당. 1000이 1초입니당.
+  let change_delay = 20000; // 이건 초입니당. 1000이 1초입니당SSSS.
 
   function changeState() {
     setTimeout(() => {
