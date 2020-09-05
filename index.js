@@ -1581,16 +1581,6 @@ if(message.content == '!!봇 가동시간') {
   message.channel.send(embed);
 }
 
-
-if(message.content == '테스트') {
-  let embed = new Discord.RichEmbed()
-  let commandList = [
-    {name: '아', desc: 'https://cdn.discordapp.com/attachments/750611741754523660/751721513232760872/9d0c9da787facd7f.gif'}
-  ]
-}
-embed.setTimestamp()
-message.channel.send(embed);
-
 });
 
 function changeCommandStringLength(str, limitLen = 8) {
