@@ -1573,7 +1573,7 @@ client.on('message', (message) => {
 
 if(message.content == '!!봇 가동시간') {
   let embed = new Discord.RichEmbed()
-  var duration = moment.duration(client.uptime).format("D [일] / H [시간] / m [분] / s [초]");
+  var duration = moment.duration(client.uptime).format("D [일]  H [시간]  m [분]  s [초]");
   embed.addField('`가동시간`', `${duration}`, true);
 
   embed.setTimestamp()
