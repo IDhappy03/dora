@@ -5,7 +5,7 @@ require("moment-duration-format");
 const token =process.env.token;
 
 client.on('ready', () => {
-  console.log('켰다.');
+  console.log(`${client.user.tag} 봇에 로그인 하였습니다!`);
   client.user.setPresence({ game: { name: '문의는 삐삐야#1950' }, status: 'online' })
 
   let state_list = [
