@@ -63,7 +63,7 @@ client.on('message', (message) => {
       .setAuthor('4반 시간표', helpImg)
       .setColor('#186de6')
       .setFooter(``)
-      .setImage('https://cdn.discordapp.com/attachments/750611741754523660/752314021826396300/KakaoTalk_20200907_083639082.jpg')
+      .setImage('https://cdn.discordapp.com/attachments/750611741754523660/752317037090439278/unknown.png')
       .setTimestamp()
     
     commandList.forEach(x => {
