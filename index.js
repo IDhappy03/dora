@@ -8,7 +8,7 @@ const token =process.env.token;
 client.on('ready', () => {
   console.log(`${client.user.tag} 봇에 로그인 하였습니다!`);
   client.user.setPresence({ game: { name: '문의는 삐삐야#1950' }, status: 'online' })
-
+//봇 상태
   let state_list = [
     '문의는 삐삐야#1950',
     '!!명령어'
@@ -30,7 +30,7 @@ client.on('ready', () => {
 
   changeState();
 });
-
+//기본 명령어
 client.on('message', (message) => {
   if(message.author.bot) return;
 
@@ -52,7 +52,13 @@ client.on('message', (message) => {
   if(message.content == '!!ㅔㅑㅜㅎ') {
     return message.reply('vhd')
   }
-
+  if(message.content == '!!제작자') {
+    message.channel.send('삐삐야')
+  }
+  if(message.content == '!!') {
+    message.channel.send('별거 없음')
+  }
+//4반 시간표
   else if(message.content == '!!4반') {
     let helpImg = '';
     let commandList = [
@@ -74,7 +80,7 @@ client.on('message', (message) => {
 
     message.channel.send(embed)
   }
-
+//embed로 나오는 초대코드
   else if(message.content == '!!초대코드') {
     let helpImg = '';
     let commandList = [
@@ -98,7 +104,7 @@ client.on('message', (message) => {
 
     message.channel.send(embed)
   }
-  
+  //명령어 목록
  else if(message.content == '!!명령어') {
     let helpImg = 'https://images-ext-1.discordapp.net/external/RyofVqSAVAi0H9-1yK6M8NGy2grU5TWZkLadG-rwqk0/https/i.imgur.com/EZRAPxR.png';
     let commandList = [
@@ -125,7 +131,7 @@ client.on('message', (message) => {
 
     message.channel.send(embed)
   }
-  
+ //비밀도구 주사위 
   else if(message.content.startsWith('!!주사위')) {
     let min = 1;
     let max = 6;
@@ -1572,6 +1578,7 @@ client.on('message', (message) => {
     message.channel.send(embed);
   }
 
+  //봇 가동시간
 if(message.content == '!!봇 가동시간') {
   let embed = new Discord.RichEmbed()
   var duration = moment.duration(client.uptime).format("D [일]  H [시간]  m [분]  s [초]");
@@ -1580,6 +1587,9 @@ if(message.content == '!!봇 가동시간') {
   embed.setTimestamp()
   message.channel.send(embed);
 }
+
+
+
 
 });
 
