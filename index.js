@@ -59,7 +59,7 @@ client.on('message', (message) => {
     message.channel.send('별거 없음')
   }
   if (message.content === '!아바타') {
-    message.reply(message.author.displayAvatarURL);
+    message.channel.send(message.author.displayAvatarURL);
   }
 
   else if(message.content == '!!4반') {
