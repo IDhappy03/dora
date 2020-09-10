@@ -66,13 +66,6 @@ client.on('message', (message) => {
     let dice_num = parseInt(Math.random() * (max - min) + min);
     message.channel.send(`인증번호:__${dice_num}__ 10분 이내에 입력해주세요!` )}
 
-    //도박기능 안됨ㅋㅋ
-    if(message.content == '!!돈받기') {
-      message.channel.send('여기에는 치노가 없어')
-    }
-    if(message.content == '!!올인') {
-      message.channel.send('여기에는 치노가 없어')
-    }
     
 //시간표
   else if(message.content == '!!4반') {
@@ -1561,7 +1554,7 @@ client.on('message', (message) => {
     let index = parseInt(Math.random() * (max - min) + min);
     message.channel.send(`${arr[index]} (이)라는 도구가 나왔어.`)
   }
-  //봇 
+  //봇 정보
   if(message.content == '!si') {
     let embed = new Discord.RichEmbed()
     let img = 'https://cdn.discordapp.com/attachments/747789641826172948/750699703758225448/744af0d16a6eddc1.jpg';
@@ -1574,7 +1567,6 @@ client.on('message', (message) => {
     embed.addField('running time', `${duration}`, true);
     embed.addField('user',         `${client.users.size.toLocaleString()}`, true);
     embed.addField('server',       `${client.guilds.size.toLocaleString()}`, true);
-    // embed.addField('channel',      `${client.channels.size.toLocaleString()}`, true);
     embed.addField('Discord.js',   `v${Discord.version}`, true);
     embed.addField('Node',         `${process.version}`, true);
     
@@ -1583,7 +1575,6 @@ client.on('message', (message) => {
     list = `\`\`\`css\n`;
     
     for(let i=0;i<arr.length;i++) {
-      // list += `${arr[i].name} - ${arr[i].id}\n`
       list += `${arr[i].name}\n`
     }
     list += `\`\`\`\n`
@@ -1603,30 +1594,12 @@ if(message.content == '!!봇 가동시간') {
   message.channel.send(embed);
 }
 
-//대화 일단 막아둠
-
-//else if(message.content.startsWith('도라에몽')) {
-//  let arr = [
-//    '왜',
-//    '?',
-//    '뭐',
-//    '왜불러?',
-//    
-//  ]
-//  let min = 0;
-//  let max = arr.length;
-//  let index = parseInt(Math.random() * (max - min) + min);
-//  message.channel.send(`${arr[index]}`);
-//}
 
 //제작자
 else if(message.content == '!!제작자') {
   let helpImg = '';
   let commandList = [
     {name: '디스코드', desc: '삐삐야#1950' },
-    {name: '디스코드', desc: '삐삐야#1950' },
-
-    
 
   ];
   let commandStr = '';
