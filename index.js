@@ -61,6 +61,12 @@ client.on('message', (message) => {
   if (message.content === '!아바타') {
     message.channel.send(message.author.displayAvatarURL);
   }
+  //인증번호
+  if(message.content.startsWith('!인증번호')) {
+    let min = 0;
+    let max = 99999;
+    let dice_num = parseInt(Math.random() * (max - min) + min);
+    message.channel.send(`인증번호:__${dice_num}__ 10분 이내에 입력해주세요!` )}
 
   else if(message.content == '!!4반') {
     let helpImg = '';
