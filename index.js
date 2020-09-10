@@ -53,9 +53,6 @@ client.on('message', (message) => {
   if(message.content == '!!ㅔㅑㅜㅎ') {
     return message.reply('vhd')
   }
-  if(message.content == '!!제작자') {
-    message.channel.send('삐삐야')
-  }
   if(message.content == '!!') {
     message.channel.send('별거 없음')
   }
@@ -63,7 +60,7 @@ client.on('message', (message) => {
     message.channel.send(message.author.displayAvatarURL);
   }
   //인증번호 그냥 재미
-  if(message.content.startsWith('!인증번호')) {
+  if(message.content.startsWith('!!인증번호')) {
     let min = 0;
     let max = 99999;
     let dice_num = parseInt(Math.random() * (max - min) + min);
@@ -132,6 +129,7 @@ client.on('message', (message) => {
       {name: '!!주사위', desc: '1~6사이의 숫자가 랜덤으로 나온다.'},
       {name: '!!초대코드', desc: '도라에몽을 초대할 수 있는 코드가 나온다'},
       {name: '!!아바타', desc: '자신의 프로필이 나온다.'},
+      {name: '!!제작자', desc: '도라에몽 제작자가 나온다'}
     ];
     let commandStr = '';
     let embed = new Discord.RichEmbed()
@@ -1626,7 +1624,7 @@ else if(message.content == '!!제작자') {
   let helpImg = '';
   let commandList = [
     {name: '디스코드', desc: '삐삐야#1950' },
-    
+
     
 
   ];
