@@ -54,9 +54,9 @@ client.on('message', (message) => {
     return message.reply('vhd')
   }
   if(message.content == '!!') {
-    message.channel.send('별거 없음')
+    message.channel.send('이걸 왜함?')
   }
-  if (message.content === '!아바타') {
+  if (message.content === '!!아바타') {
     message.channel.send(message.author.displayAvatarURL);
   }
   //인증번호 그냥 재미
@@ -1603,21 +1603,21 @@ if(message.content == '!!봇 가동시간') {
   message.channel.send(embed);
 }
 
-//대화
+//대화 일단 막아둠
 
-else if(message.content.startsWith('도라에몽')) {
-  let arr = [
-    '왜',
-    '?',
-    '뭐',
-    '왜불러?',
-    
-  ]
-  let min = 0;
-  let max = arr.length;
-  let index = parseInt(Math.random() * (max - min) + min);
-  message.channel.send(`${arr[index]}`);
-}
+//else if(message.content.startsWith('도라에몽')) {
+//  let arr = [
+//    '왜',
+//    '?',
+//    '뭐',
+//    '왜불러?',
+//    
+//  ]
+//  let min = 0;
+//  let max = arr.length;
+//  let index = parseInt(Math.random() * (max - min) + min);
+//  message.channel.send(`${arr[index]}`);
+//}
 
 //제작자
 else if(message.content == '!!제작자') {
