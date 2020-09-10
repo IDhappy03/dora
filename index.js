@@ -14,7 +14,7 @@ client.on('ready', () => {
     '!!명령어'
   ]
   let state_list_index = 1;
-  let change_delay = 60000; // 이건 초입니당. 1000이 1초입니당SSSS.
+  let change_delay = 60000; // 이건 초입니당. 1000이 1초입니당.
 
   function changeState() {
     setTimeout(() => {
@@ -1608,7 +1608,20 @@ if(message.content == '!!봇 가동시간') {
   message.channel.send(embed);
 }
 
+//대화
 
+else if(message.content.startsWith('도라에몽')) {
+  let arr = [
+    '왜',
+    '?',
+    '뭐',
+    '왜불러?',
+  ]
+  let min = 0;
+  let max = arr.length;
+  let index = parseInt(Math.random() * (max - min) + min);
+  message.channel.send(`${arr[index]}`);
+}
 
 
 });
