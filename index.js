@@ -8,7 +8,7 @@ const token =process.env.token;
 client.on('ready', () => {
   console.log(`${client.user.tag} 봇에 로그인 하였습니다!`);
   client.user.setPresence({ game: { name: '문의는 삐삐야#1950' }, status: 'online' })
-
+//봇 상태
   let state_list = [
     '문의는 삐삐야#1950',
     '!!명령어'
@@ -32,6 +32,7 @@ client.on('ready', () => {
 });
 
 client.on('message', (message) => {
+  //기본 명령어
   if(message.author.bot) return;
 
   if(message.content == '!!ping') {
@@ -76,7 +77,7 @@ client.on('message', (message) => {
       message.channel.send('여기에는 치노가 없어')
     }
     
-
+//시간표
   else if(message.content == '!!4반') {
     let helpImg = '';
     let commandList = [
@@ -98,7 +99,7 @@ client.on('message', (message) => {
 
     message.channel.send(embed)
   }
-
+//초대코드
   else if(message.content == '!!초대코드') {
     let helpImg = '';
     let commandList = [
@@ -122,7 +123,7 @@ client.on('message', (message) => {
 
     message.channel.send(embed)
   }
- 
+ //명령어 목록
  else if(message.content == '!!명령어') {
     let helpImg = 'https://images-ext-1.discordapp.net/external/RyofVqSAVAi0H9-1yK6M8NGy2grU5TWZkLadG-rwqk0/https/i.imgur.com/EZRAPxR.png';
     let commandList = [
@@ -150,7 +151,7 @@ client.on('message', (message) => {
 
     message.channel.send(embed)
   }
-  
+  //비밀도구,주사위
   else if(message.content.startsWith('!!주사위')) {
     let min = 1;
     let max = 6;
@@ -1565,7 +1566,7 @@ client.on('message', (message) => {
     let index = parseInt(Math.random() * (max - min) + min);
     message.channel.send(`${arr[index]} (이)라는 도구가 나왔어.`)
   }
-  
+  //봇 
   if(message.content == '!si') {
     let embed = new Discord.RichEmbed()
     let img = 'https://cdn.discordapp.com/attachments/747789641826172948/750699703758225448/744af0d16a6eddc1.jpg';
