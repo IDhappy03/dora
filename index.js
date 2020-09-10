@@ -62,14 +62,14 @@ client.on('message', (message) => {
   if (message.content === '!아바타') {
     message.channel.send(message.author.displayAvatarURL);
   }
-  //인증번호
+  //인증번호 그냥 재미
   if(message.content.startsWith('!인증번호')) {
     let min = 0;
     let max = 99999;
     let dice_num = parseInt(Math.random() * (max - min) + min);
     message.channel.send(`인증번호:__${dice_num}__ 10분 이내에 입력해주세요!` )}
 
-    //도박기능
+    //도박기능 안됨ㅋㅋ
     if(message.content == '!!돈받기') {
       message.channel.send('여기에는 치노가 없어')
     }
@@ -127,14 +127,11 @@ client.on('message', (message) => {
  else if(message.content == '!!명령어') {
     let helpImg = 'https://images-ext-1.discordapp.net/external/RyofVqSAVAi0H9-1yK6M8NGy2grU5TWZkLadG-rwqk0/https/i.imgur.com/EZRAPxR.png';
     let commandList = [
-      {name: '!!ping', desc: 'pong'},
       {name: '!!명령어', desc: '사용가능한 명령어가 나온다'},
       {name: '!!비밀도구', desc: '도라에몽의 비밀도구가 랜덤으로 나온다'},
       {name: '!!주사위', desc: '1~6사이의 숫자가 랜덤으로 나온다.'},
-      {name: '!!도움', desc: '초보자 가이드가 나온다.'},
       {name: '!!초대코드', desc: '도라에몽을 초대할 수 있는 코드가 나온다'},
-      {name: '!!qlalfehrn', desc: '도라에몽의 비밀도구가 랜덤으로 나온다.'},
-      {name: '!인증번호', desc: '인증번호가 나온다'},
+      {name: '!!아바타', desc: '자신의 프로필이 나온다.'},
     ];
     let commandStr = '';
     let embed = new Discord.RichEmbed()
@@ -1616,6 +1613,7 @@ else if(message.content.startsWith('도라에몽')) {
     '?',
     '뭐',
     '왜불러?',
+    
   ]
   let min = 0;
   let max = arr.length;
@@ -1623,6 +1621,31 @@ else if(message.content.startsWith('도라에몽')) {
   message.channel.send(`${arr[index]}`);
 }
 
+//제작자
+else if(message.content == '!!제작자') {
+  let helpImg = '';
+  let commandList = [
+    {name: '디스코드', desc: '삐삐야#1950' },
+    
+    
+
+  ];
+  let commandStr = '';
+  let embed = new Discord.RichEmbed()
+    .setAuthor('삐삐야', helpImg)
+    .setColor('#CEFFC7')
+    .setFooter(`삐삐야가 만듬`)
+    .setImage('')
+    .setTimestamp()
+  
+  commandList.forEach(x => {
+    commandStr += `• \`\`${changeCommandStringLength(`${x.name}`)}\`\` : **${x.desc}**\n`;
+  });
+
+  embed.addField('제작자: ', commandStr);
+
+  message.channel.send(embed)
+}
 
 });
 
