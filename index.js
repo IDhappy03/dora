@@ -1604,7 +1604,7 @@ else if(message.content == '!!제작자') {
   ];
   let commandStr = '';
   let embed = new Discord.RichEmbed()
-    .setAuthor('삐삐야', helpImg)
+    .setAuthor('', helpImg)
     .setColor('#CEFFC7')
     .setFooter(`삐삐야가 만듬`)
     .setImage('')
@@ -1618,7 +1618,7 @@ else if(message.content == '!!제작자') {
 
   message.channel.send(embed)
 }
-//대화 너무 지저분해서 안함
+
 
 
 
