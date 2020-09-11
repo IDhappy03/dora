@@ -45,16 +45,16 @@ client.on('message', (message) => {
     message.channel.send('https://discordjs.guide/additional-info/changes-in-v12.html#string-concatenation')
   }
   if(message.content == '!!출첵') {
-    message.channel.send('될줄알았니?')
+    message.reply('될줄알았니?')
   }
   if(message.content == '!!그리기') {
     message.channel.send('https://www.youtube.com/watch?v=2SojPurh_rM')
   }
   if(message.content == '!!ㅔㅑㅜㅎ') {
-    return message.reply('vhd')
+    message.channel.send('vhd')
   }
   if(message.content == '!!') {
-    message.channel.send('이걸 왜함?')
+    message.reply('이걸 왜함?')
   }
   if (message.content === '!!아바타') {
     message.channel.send(message.author.displayAvatarURL);
@@ -1618,6 +1618,44 @@ else if(message.content == '!!제작자') {
 
   message.channel.send(embed)
 }
+//대화
+
+if(message.content.startsWith('도라에몽')) {
+  let arr = [
+    'ㅇ?',
+    '왜',
+    '뭐',
+  ]
+  let min = 0;
+  let max = arr.length;
+  let index = parseInt(Math.random() * (max - min) + min);
+  message.channel.send(`${arr[index]}`)
+}
+if(message.content.startsWith('도라에몽 놀자')) {
+  let arr = [
+    '귀찮아',
+    '싫어',
+    '혼자 놀아',
+  ]
+  let min = 0;
+  let max = arr.length;
+  let index = parseInt(Math.random() * (max - min) + min);
+  message.channel.send(`${arr[index]}`)
+}
+if(message.content.startsWith('도라에몽 뭐해?')) {
+  let arr = [
+    '니 알빠?',
+    '채팅중인데',
+    'ㅁㄹ 난 뭐 하고있지?',
+    '할거없으면 나부르지마 내가무슨 동네북인줄알어ㅡㅡ',
+    '밥먹는중',
+  ]
+  let min = 0;
+  let max = arr.length;
+  let index = parseInt(Math.random() * (max - min) + min);
+  message.channel.send(`${arr[index]}`)
+}
+
 
 });
 
