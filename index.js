@@ -1620,41 +1620,7 @@ else if(message.content == '!!제작자') {
 }
 //대화
 
-if(message.content.startsWith('도라에몽')) {
-  let arr = [
-    'ㅇ?',
-    '왜',
-    '뭐',
-  ]
-  let min = 0;
-  let max = arr.length;
-  let index = parseInt(Math.random() * (max - min) + min);
-  message.channel.send(`${arr[index]}`)
-}
-if(message.content.startsWith('도라에몽 놀자')) {
-  let arr = [
-    '귀찮아',
-    '싫어',
-    '혼자 놀아',
-  ]
-  let min = 0;
-  let max = arr.length;
-  let index = parseInt(Math.random() * (max - min) + min);
-  message.channel.send(`${arr[index]}`)
-}
-if(message.content.startsWith('도라에몽 뭐해?')) {
-  let arr = [
-    '니 알빠?',
-    '채팅중인데',
-    'ㅁㄹ 난 뭐 하고있지?',
-    '할거없으면 나부르지마 내가무슨 동네북인줄알어ㅡㅡ',
-    '밥먹는중',
-  ]
-  let min = 0;
-  let max = arr.length;
-  let index = parseInt(Math.random() * (max - min) + min);
-  message.channel.send(`${arr[index]}`)
-}
+
 
 
 });
