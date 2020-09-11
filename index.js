@@ -1614,7 +1614,7 @@ else if(message.content == '!!제작자') {
     commandStr += `• \`\`${changeCommandStringLength(`${x.name}`)}\`\` : **${x.desc}**\n`;
   });
 
-  embed.addField('제작자: ', commandStr);
+  embed.addField('', commandStr);
 
   message.channel.send(embed)
 }
