@@ -78,7 +78,7 @@ client.on('message', (message) => {
       .setAuthor('4반 시간표', helpImg)
       .setColor('#186de6')
       .setFooter(``)
-      .setImage('https://cdn.discordapp.com/attachments/750611741754523660/752317037090439278/unknown.png')
+      .setImage('https://cdn.discordapp.com/attachments/680726429058727947/753861517312786482/unknown.png')
       .setTimestamp()
     
     commandList.forEach(x => {
@@ -1606,7 +1606,7 @@ else if(message.content == '!!제작자') {
   let embed = new Discord.RichEmbed()
     .setAuthor('', helpImg)
     .setColor('#CEFFC7')
-    .setFooter(`삐삐야`)
+    .setFooter(`삐삐야가 만듬`)
     .setImage('')
     .setTimestamp()
   
@@ -1614,7 +1614,7 @@ else if(message.content == '!!제작자') {
     commandStr += `• \`\`${changeCommandStringLength(`${x.name}`)}\`\` : **${x.desc}**\n`;
   });
 
-  
+  embed.addField('제작자: ', commandStr);
 
   message.channel.send(embed)
 }
