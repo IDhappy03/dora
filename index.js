@@ -1606,7 +1606,7 @@ else if(message.content == '!!제작자') {
   let embed = new Discord.RichEmbed()
     .setAuthor('', helpImg)
     .setColor('#CEFFC7')
-    .setFooter(`삐삐야가 만듬`)
+    .setFooter(`삐삐야`)
     .setImage('')
     .setTimestamp()
   
