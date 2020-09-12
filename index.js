@@ -1577,7 +1577,7 @@ client.on('message', (message) => {
     
     for(let i=0;i<arr.length;i++) {
       list += `${arr[i].name} - ${arr[i].id}\n`
-      list += `${arr[i].name}\n`
+      //list += `${arr[i].name}\n`
     }
     list += `\`\`\`\n`
     embed.addField('list:',        `${list}`);
