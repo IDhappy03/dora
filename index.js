@@ -1575,12 +1575,6 @@ client.on('message', (message) => {
     let list = '';
     list = `\`\`\`css\n`;
     
-    for(let i=0;i<arr.length;i++) {
-      list += `${arr[i].name} - ${arr[i].id}\n`
-      //list += `${arr[i].name}\n`
-    }
-    list += `\`\`\`\n`
-    embed.addField('list:',        `${list}`);
 
     embed.setTimestamp()
     message.channel.send(embed);
