@@ -1555,7 +1555,7 @@ client.on('message', (message) => {
     message.channel.send(`${arr[index]} (이)라는 도구가 나왔어.`)
   }
   //봇 정보
-  if(message.content == '!si') {
+  if(message.content == '!!냐') {
     let embed = new Discord.RichEmbed()
     let img = 'https://cdn.discordapp.com/attachments/747789641826172948/750699703758225448/744af0d16a6eddc1.jpg';
     var duration = moment.duration(client.uptime).format(" D [일], H [시간], m [분], s [초]");
