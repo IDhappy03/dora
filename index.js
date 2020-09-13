@@ -39,7 +39,7 @@ client.on('message', (message) => {
     const exampleEmbed = new Discord.RichEmbed()
       .addField(`:ping_pong:`, client.ping + 'ms')
       .setTimestamp()
-      .setFooter('피이이잉')
+      .setFooter('퐁')
 
     message.channel.send(exampleEmbed)
   };
