@@ -35,7 +35,7 @@ client.on('message', (message) => {
   //기본 명령어
   if(message.author.bot) return;
 
-  if(message.content == `핑`) {
+  if(message.content == `!!핑`) {
     const exampleEmbed = new Discord.RichEmbed()
       .addField(`:ping_pong:`, client.ping + 'ms')
       .setTimestamp()
