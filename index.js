@@ -115,7 +115,7 @@ client.on('message', (message) => {
   }
  //명령어 목록
  else if(message.content == '!!명령어') {
-    let helpImg = 'https://images-ext-1.discordapp.net/external/RyofVqSAVAi0H9-1yK6M8NGy2grU5TWZkLadG-rwqk0/https/i.imgur.com/EZRAPxR.png';
+    let helpImg = '';
     let commandList = [
       {name: '!!명령어'   ,   desc: '사용가능한 명령어가 나온다'},
       {name: '!!비밀도구' ,   desc: '도라에몽의 비밀도구가 랜덤으로 나온다'},
