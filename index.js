@@ -37,7 +37,7 @@ client.on('message', (message) => {
 
   if(message.content == `!!핑`) {
     const exampleEmbed = new Discord.RichEmbed()
-      .addField(`:ping_pong:`, client.ping + 'ms')
+      .addField(`퐁 :ping_pong:`, client.ping + 'ms')
       .setTimestamp()
       .setFooter('퐁')
 
