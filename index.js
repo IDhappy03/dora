@@ -36,7 +36,7 @@ client.on('message', (message) => {
   if(message.author.bot) return;
 
   if(message.content == '!!핑') {
-    message.channel.send(`client.ping + ' ms'`);
+    message.channel.send(client.ping + ' ms');
   }
   if(message.content == '!!봇') {
     message.channel.send('https://dashboard.heroku.com/apps')
