@@ -123,7 +123,7 @@ client.on('message', (message) => {
       {name: '!!초대코드' ,   desc: '도라에몽을 초대할 수 있는 코드가 나온다'},
       {name: '!!아바타'   ,   desc: '자신의 프로필이 나온다.'},
       {name: '!!제작자'   ,   desc: '도라에몽 제작자가 나온다'},
-      {name: '!!핑'       ,   desc: client.ping + 'ms'}
+      {name: '!!핑'       ,   desc: 'pong'}
     ];
     let commandStr = '';
     let embed = new Discord.RichEmbed()
