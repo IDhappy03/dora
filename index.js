@@ -35,9 +35,14 @@ client.on('message', (message) => {
   //기본 명령어
   if(message.author.bot) return;
 
-  if(message.content == '!!핑') {
-    message.channel.send(client.ping + 'ms');
-  }
+  if(message.content == `핑`) {
+    const exampleEmbed = new Discord.RichEmbed()
+      .addField(`:ping_pong:`, client.ping + 'ms')
+      .setTimestamp()
+      .setFooter('피이이잉')
+
+    message.channel.send(exampleEmbed)
+  };
   if(message.content == '!!봇') {
     message.channel.send('https://dashboard.heroku.com/apps')
   }
@@ -1569,6 +1574,7 @@ client.on('message', (message) => {
     embed.addField('user',         `${client.users.size.toLocaleString()}`, true);
     embed.addField('server',       `${client.guilds.size.toLocaleString()}`, true);
     embed.addField('ping',          client.ping + 'ms', true);
+    embed.addField('message',                                              )
     //embed.addField('channel',      `${client.channels.size.toLocaleString()}`, true);
     //embed.addField('Discord.js',   `v${Discord.version}`, true);
     //embed.addField('Node',         `${process.version}`, true);
