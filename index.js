@@ -37,10 +37,9 @@ client.on('message', (message) => {
 
   if(message.content == `!!핑`) {
     const exampleEmbed = new Discord.RichEmbed()
-      .addField(`퐁 :ping_pong:`, client.ping + 'ms')
+      .addField('퐁 :ping_pong:', client.ping + `ms`)
       .setTimestamp()
-      .setFooter('퐁')
-
+      .setFooter('도라에몽')
     message.channel.send(exampleEmbed)
   };
   if(message.content == '!!봇') {
