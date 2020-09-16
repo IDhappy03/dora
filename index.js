@@ -1570,7 +1570,7 @@ client.on('message', (message) => {
     embed.addField('user',         `${client.users.size.toLocaleString()}`, true);
     embed.addField('server',       `${client.guilds.size.toLocaleString()}`, true);
     embed.addField('ping',          client.ping + 'ms', true);
-    embed.addField('message',                                              )
+    embed.addField('message',      `${client.user.username}`, true);
     //embed.addField('channel',      `${client.channels.size.toLocaleString()}`, true);
     //embed.addField('Discord.js',   `v${Discord.version}`, true);
     //embed.addField('Node',         `${process.version}`, true);
