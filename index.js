@@ -7,7 +7,25 @@ const token =process.env.token;
 
 client.on('ready', () => {
   console.log(`${client.user.tag} 봇에 로그인 하였습니다!`);
-  client.user.setActivity("문의는 삐삐야#1950", {type: "WATCHING"})
+  client.user.setPresence({ game: { name: '문의는 삐삐야#1950' }, status: 'online' })
+
+  let state_list = [
+    '!!명령어를 쳐보세요.',
+  ]
+  let state_list_index = 1;
+  let change_delay = 3000; // 이건 초입니당. 1000이 1초입니당.
+
+  function changeState() {
+    setTimeout(() => {
+      // console.log( '상태 변경 -> ', state_list[state_list_index] );
+      client.user.setPresence({ game: { name: state_list[state_list_index] }, status: 'online' })
+      state_list_index += 1;
+      if(state_list_index >= state_list.length) {
+        state_list_index = 0;
+      }
+      changeState()
+    }, change_delay);
+  }
 
 });
 
