@@ -7,7 +7,7 @@ const token =process.env.token;
 
 client.on('ready', () => {
   console.log(`${client.user.tag} 봇에 로그인 하였습니다!`);
-  client.user.setActivity("문의는 삐삐야#1950", {type: "LISTENING"})
+  client.user.setActivity("문의는 삐삐야#1950", {type: "PLAYING"})
 
 });
 
