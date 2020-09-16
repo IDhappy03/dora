@@ -79,8 +79,7 @@ client.on('message', (message) => {
     let helpImg = '';
     let commandList = [
       {name: '초대코드', desc: 'https://discord.com/api/oauth2/authorize?client_id=742635886998454293&permissions=8&scope=bot' },
-      
-
+    
     ];
     let commandStr = '';
     let embed = new Discord.RichEmbed()
