@@ -854,7 +854,7 @@ client.on('message', (message) => {
     let min = 1;
     let max = 7;
     let dice_num = parseInt(Math.random() * (max - min) + min);
-    return message.channel.send(`${dice_num}`);
+    return message.reply(`${dice_num}`);
   } else if(message.content.startsWith('!!qlalfehrn')) {
     let arr = [
       '가거라 개',
