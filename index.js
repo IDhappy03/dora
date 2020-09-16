@@ -1633,4 +1633,12 @@ function changeCommandStringLength(str, limitLen = 8) {
   return tmp;
 }
 
+client.on('message', (message) => {
+  //기본 명령어
+  if(message.author.bot) return;
+  if(message.content == '비밀도구') {
+    message.channel.send('이건 없음')
+  }
+});
+
 client.login(token);742635886998454293
