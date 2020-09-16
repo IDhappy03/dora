@@ -8,6 +8,7 @@ const token =process.env.token;
 client.on('ready', () => {
   console.log(`${client.user.tag} 봇에 로그인 하였습니다!`);
   client.user.setPresence({ game: { name: '문의는 삐삐야#1950' }, status: 'online' })
+  
 //봇 상태
   let state_list = [
     '문의는 삐삐야#1950',
@@ -63,6 +64,7 @@ client.on('message', (message) => {
   if (message.content === '!!아바타') {
     message.channel.send(message.author.displayAvatarURL);
   }
+  if(message.content == '')
   //인증번호 그냥 재미
   if(message.content.startsWith('!!인증번호')) {
     let min = 0;
@@ -145,12 +147,7 @@ client.on('message', (message) => {
     message.channel.send(embed)
   }
   //비밀도구,주사위
-  else if(message.content.startsWith('!!주사위')) {
-    let min = 1;
-    let max = 6;
-    let dice_num = parseInt(Math.random() * (max - min) + min);
-    return message.reply(`${dice_num} (이/가) 나왔습니다.`);
-  } else if(message.content.startsWith('!!비밀도구')) {
+  if(message.content.startsWith('!!비밀도구')) {
     let arr = [
       '가거라 개',
       '가공인물 계란',
