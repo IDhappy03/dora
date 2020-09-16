@@ -7,7 +7,7 @@ const token =process.env.token;
 
 client.on('ready', () => {
   console.log(`${client.user.tag} 봇에 로그인 하였습니다!`);
-  client.user.setPresence({ game: {type: "WATCHING" }, status: 'online' })
+  client.user.setPresence({ game: {type: "WATCHING" }, status: "idle" })
   
   
 //봇 상태
