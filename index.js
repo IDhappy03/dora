@@ -852,9 +852,9 @@ client.on('message', (message) => {
 
   else if(message.content.startsWith('!!주사위')) {
     let min = 1;
-    let max = 6;
+    let max = 7;
     let dice_num = parseInt(Math.random() * (max - min) + min);
-    return message.reply(`${dice_num} (이/가) 나왔습니다.`);
+    return message.channel.send(`${dice_num}`);
   } else if(message.content.startsWith('!!qlalfehrn')) {
     let arr = [
       '가거라 개',
