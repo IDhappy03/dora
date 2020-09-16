@@ -61,8 +61,7 @@ client.on('message', (message) => {
   if (message.content === '!!아바타') {
     message.channel.send(message.author.displayAvatarURL);
   }
-  if(message.content == '')
-  //인증번호 그냥 재미
+
   
   //비밀도구,주사위
   if(message.content.startsWith('!!비밀도구')) {
@@ -1470,7 +1469,7 @@ client.on('message', (message) => {
       'B급음식이 나오는 식탁보',
 ]
     let min = 0;
-    let max = arr.length;
+    let max = arr.length;     
     let index = parseInt(Math.random() * (max - min) + min);
     message.channel.send(`${arr[index]} (이)라는 도구가 나왔어.`)
   }
@@ -1641,7 +1640,7 @@ client.on('message', (message) => {
 
     message.channel.send(embed)
   }
-  
+
 });
 
 client.login(token);742635886998454293
