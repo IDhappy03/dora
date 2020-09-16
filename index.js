@@ -7,7 +7,7 @@ const token =process.env.token;
 
 client.on('ready', () => {
   console.log(`${client.user.tag} 봇에 로그인 하였습니다!`);
-  client.user.setActivity("문의는 삐삐야#1950", {type: "STREAMING"})
+  client.user.setActivity("문의는 삐삐야#1950", {type: "WATCHING"})
 
 });
 
@@ -79,7 +79,8 @@ client.on('message', (message) => {
     let helpImg = '';
     let commandList = [
       {name: '초대코드', desc: 'https://discord.com/api/oauth2/authorize?client_id=742635886998454293&permissions=8&scope=bot' },
-    
+      
+
     ];
     let commandStr = '';
     let embed = new Discord.RichEmbed()
