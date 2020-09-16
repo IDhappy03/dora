@@ -1566,11 +1566,11 @@ client.on('message', (message) => {
     embed.setFooter(`도라에몽 BOT ❤️`)
     embed.addBlankField()
     embed.addField('RAM usage',    `${(process.memoryUsage().heapUsed / 1024 / 1024).toFixed(2)} MB`, true);
-    embed.addField('running time', `${duration}`, true);
+    embed.addField('uptime', `${duration}`, true);
     embed.addField('user',         `${client.users.size.toLocaleString()}`, true);
     embed.addField('server',       `${client.guilds.size.toLocaleString()}`, true);
     embed.addField('ping',          client.ping + 'ms', true);
-    embed.addField('message',      `${client.user.username}`, true);
+    //embed.addField('message',      `${client.user.username}`, true);
     //embed.addField('channel',      `${client.channels.size.toLocaleString()}`, true);
     //embed.addField('Discord.js',   `v${Discord.version}`, true);
     //embed.addField('Node',         `${process.version}`, true);
