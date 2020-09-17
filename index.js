@@ -61,7 +61,6 @@ client.on('message', (message) => {
   if (message.content === '!!아바타') {
     message.channel.send(message.author.displayAvatarURL);
   }
-
   
   //비밀도구,주사위
   if(message.content.startsWith('!!비밀도구')) {
@@ -1536,7 +1535,10 @@ else if(message.content == '!!제작자') {
   message.channel.send(embed)
 }
 
-//
+//도배
+if(message.content == '!!도배') {
+  message.channel.send('1\n1\n1\n1\n1\n1\n1\n1\n1\n1\n1\n1\n1\n1\n1\n1\n1\n1\n1\n1\n1\n1\n1\n1\n1\n1\n1\n1\n1\n1\n1\n1\n1\n1\n1\n1\n1\n')
+}
 
 
 
