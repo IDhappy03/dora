@@ -1486,6 +1486,11 @@ client.on('message', (message) => {
     embed.addField('user',         `${client.users.size.toLocaleString()}`, true);
     embed.addField('server',       `${client.guilds.size.toLocaleString()}`, true);
     embed.addField('ping',          client.ping + 'ms', true);
+    embed.addField(`서버 오너`, `${message.guild.owner.displayName}님`, true)
+    embed.addField(`서버 이름`, `${message.guild.name}`, true)
+    embed.addField(`서버 봇 갯수`, `${message.guild.members.cache.filter(x => x.user.bot).size}개`, true)
+    embed.addField(`서버 역할 갯수`, `${message.guild.roles.cache.size}개`, true)
+    embed.addField(`서버 전체 인원`, `${message.guild.memberCount}명`, true)
     //embed.addField('message',      `${client.user.username}`, true);
     //embed.addField('channel',      `${client.channels.size.toLocaleString()}`, true);
     //embed.addField('Discord.js',   `v${Discord.version}`, true);
