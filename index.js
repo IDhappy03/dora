@@ -60,6 +60,21 @@ client.on('message', (message) => {
   }
   if (message.content === '!!아바타') {
     message.channel.send(message.author.displayAvatarURL);
+    
+  }else if(message.content === '!!내정보') {
+    let img = `${message.author.avatarURL}`
+    let embed = new Discord.RichEmbed()
+    .setTitle(message.author.username+"님의 정보")
+    .setThumbnail(img)
+    .setColor("RANDOM")
+    .addField("전체이름", `${message.author.username}#${message.author.discriminator}`, true)
+    .addField("이름", `${message.author.username}`, true)
+    .addField("태그", `${message.author.discriminator}`, true)
+    .addField("아이디",`${message.author.id}`, true)
+    .addField("프로필링크", `[프로필사진 링크](${message.author.avatarURL})`, true)
+    .addField("만든날짜", `${message.author.createdAt}`)
+    .addField("들어온날짜", `${message.member.joinedAt}`)
+  message.channel.send(embed)
   }
   
   //비밀도구,주사위
