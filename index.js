@@ -72,8 +72,8 @@ client.on('message', (message) => {
     .addField("태그", `${message.author.discriminator}`, true)
     .addField("아이디",`${message.author.id}`, true)
     .addField("프로필링크", `[프로필사진 링크](${message.author.avatarURL})`, true)
-    .addField("만든날짜", `${message.author.createdAt}`)
-    .addField("들어온날짜", `${message.member.joinedAt}`)
+    .addField("계정 만든날짜", `${message.author.createdAt}`)
+    .addField("서버 들어온날짜", `${message.member.joinedAt}`)
   message.channel.send(embed)
   }
   
