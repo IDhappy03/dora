@@ -77,7 +77,7 @@ client.on('message', (message) => {
   message.channel.send(embed)
   }
 
-  if(message.content === '야') {
+  if(message.content === '리스트') {
     if(message.author.id === "432038330264190977") {
         let embed = new Discord.RichEmbed()
         .setColor("RANDOM")
@@ -1528,18 +1528,6 @@ client.on('message', (message) => {
     //embed.addField('Discord.js',   `v${Discord.version}`, true);
     //embed.addField('Node',         `${process.version}`, true);
     
-    let arr = client.guilds.array();
-    let list = '';
-    list = `\`\`\`css\n`;
-
-    for(let i=0;i<arr.length;i++) {
-      // list += `${arr[i].name} - ${arr[i].id}\n`
-      list += `${arr[i].name}\n`
-    }
-    list += `\`\`\`\n`
-    embed.addField('list:',        `${list}`);
-    
-
     embed.setTimestamp()
     message.channel.send(embed);
   }
