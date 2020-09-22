@@ -79,9 +79,24 @@ client.on('message', (message) => {
 
   if(message.content === '야') {
     if(message.author.id === "432038330264190977") {
-        message.channel.send('네!')
+        let embed = new Discord.RichEmbed()
+        .setColor("RANDOM")
+        let arr = client.guilds.array();
+        let list = '';
+        list = `\`\`\`css\n`;
+    
+        for(let i=0;i<arr.length;i++) {
+          // list += `${arr[i].name} - ${arr[i].id}\n`
+          list += `${arr[i].name}\n`
+        }
+        list += `\`\`\`\n`
+        embed.addField('list:',        `${list}`);
+        
+        
+        embed.setTimestamp()
+        message.channel.send(embed);
     } else
-      message.channel.send(`${message.author.username}넌 안됨 ㅅㄱ`)
+      message.channel.send(`**__${message.author.username}__**넌 안됨 ㅅㄱ`)
     }
   
   //비밀도구,주사위
