@@ -76,6 +76,13 @@ client.on('message', (message) => {
     .addField("서버 들어온날짜", `${message.member.joinedAt}`)
   message.channel.send(embed)
   }
+
+  if(message.content === '야') {
+    if(message.author.id === "432038330264190977") {
+        message.channel.send('네!')
+    } else
+      message.channel.send(`${message.author.username}넌 안됨 ㅅㄱ`)
+    }
   
   //비밀도구,주사위
   if(message.content.startsWith('!!비밀도구')) {
