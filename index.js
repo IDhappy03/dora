@@ -34,6 +34,8 @@ client.on('message', (message) => {
   if(message.author.bot) return;
 
   if(message.content == `!!핑`) {
+    if(message.channel.type == 'dm')
+    return message.reply('dm에서 사용할 수 없는 명령어 입니다.')    
     const exampleEmbed = new Discord.RichEmbed()
       .addField('퐁 :ping_pong:', client.ping + 'ms')
       .setTimestamp()
@@ -41,21 +43,33 @@ client.on('message', (message) => {
     message.channel.send(exampleEmbed)
   };
   if(message.content == '!!봇') {
+    if(message.channel.type == 'dm')
+  return message.reply('dm에서 사용할 수 없는 명령어 입니다.')
     message.channel.send('https://dashboard.heroku.com/apps')
   }
   if(message.content == '!!도움') {
+    if(message.channel.type == 'dm')
+  return message.reply('dm에서 사용할 수 없는 명령어 입니다.')
     message.channel.send('https://discordjs.guide/additional-info/changes-in-v12.html#string-concatenation')
   }
   if(message.content == '!!출첵') {
+    if(message.channel.type == 'dm')
+  return message.reply('dm에서 사용할 수 없는 명령어 입니다.')
     message.reply('될줄알았니?')
   }
   if(message.content == '!!그리기') {
+    if(message.channel.type == 'dm')
+  return message.reply('dm에서 사용할 수 없는 명령어 입니다.')
     message.channel.send('https://www.youtube.com/watch?v=2SojPurh_rM')
   }
   if (message.content === '!!아바타') {
+    if(message.channel.type == 'dm')
+  return message.reply('dm에서 사용할 수 없는 명령어 입니다.')
     message.channel.send(message.author.displayAvatarURL);
     
   }else if(message.content === '!!내정보') {
+    if(message.channel.type == 'dm')
+  return message.reply('dm에서 사용할 수 없는 명령어 입니다.')
     let img = `${message.author.avatarURL}`
     let embed = new Discord.RichEmbed()
     .setTitle(message.author.username+"님의 정보")
@@ -72,6 +86,8 @@ client.on('message', (message) => {
   }
 
   if(message.content === '리스트') {
+    if(message.channel.type == 'dm')
+  return message.reply('dm에서 사용할 수 없는 명령어 입니다.')
     if(message.author.id === "432038330264190977") {
         let embed = new Discord.RichEmbed()
         .setColor("RANDOM")
@@ -95,6 +111,8 @@ client.on('message', (message) => {
   
   //비밀도구,주사위
   if(message.content.startsWith('!!비밀도구')) {
+    if(message.channel.type == 'dm')
+  return message.reply('dm에서 사용할 수 없는 명령어 입니다.')
     let arr = [
       '가거라 개',
       '가공인물 계란',
@@ -798,11 +816,15 @@ client.on('message', (message) => {
 
 
   else if(message.content.startsWith('!!주사위')) {
+    if(message.channel.type == 'dm')
+  return message.reply('dm에서 사용할 수 없는 명령어 입니다.')
     let min = 1;
     let max = 7;
     let dice_num = parseInt(Math.random() * (max - min) + min);
     return message.reply(`**__${dice_num}__**`);
   } else if(message.content.startsWith('!!qlalfehrn')) {
+    if(message.channel.type == 'dm')
+  return message.reply('dm에서 사용할 수 없는 명령어 입니다.')
     let arr = [
       '가거라 개',
       '가공인물 계란',
@@ -1505,6 +1527,8 @@ client.on('message', (message) => {
   }
   //봇 정보
   if(message.content == '!!냐') {
+    if(message.channel.type == 'dm')
+  return message.reply('dm에서 사용할 수 없는 명령어 입니다.')
     let embed = new Discord.RichEmbed()
     let img = 'https://cdn.discordapp.com/attachments/747789641826172948/750699703758225448/744af0d16a6eddc1.jpg';
     var duration = moment.duration(client.uptime).format(" D [일], H [시간], m [분], s [초]");
@@ -1528,6 +1552,8 @@ client.on('message', (message) => {
 
 
 if(message.content == '!!봇 가동시간') {
+  if(message.channel.type == 'dm')
+  return message.reply('dm에서 사용할 수 없는 명령어 입니다.')
   let embed = new Discord.RichEmbed()
   var duration = moment.duration(client.uptime).format("D [일]  H [시간]  m [분]  s [초]");
   embed.addField('`가동시간`', `${duration}`, true);
@@ -1539,6 +1565,8 @@ if(message.content == '!!봇 가동시간') {
 
 //제작자
 else if(message.content == '!!제작자') {
+  if(message.channel.type == 'dm')
+  return message.reply('dm에서 사용할 수 없는 명령어 입니다.')
   let helpImg = '';
   let commandList = [
     {name: '디스코드', desc: '삐삐야#1950' },
@@ -1582,10 +1610,14 @@ client.on('message', (message) => {
   //기본 명령어
   if(message.author.bot) return;
   if(message.content == '비밀도구') {
+    if(message.channel.type == 'dm')
+  return message.reply('dm에서 사용할 수 없는 명령어 입니다.')
     message.channel.send('이건 없음')
   }
 
   if(message.content.startsWith('!!인증번호')) {
+    if(message.channel.type == 'dm')
+  return message.reply('dm에서 사용할 수 없는 명령어 입니다.')
     let min = 0;
     let max = 99999;
     let dice_num = parseInt(Math.random() * (max - min) + min);
@@ -1594,6 +1626,8 @@ client.on('message', (message) => {
     
 //시간표
   else if(message.content == '!!4반') {
+    if(message.channel.type == 'dm')
+  return message.reply('dm에서 사용할 수 없는 명령어 입니다.')
     let helpImg = '';
     let commandList = [
       {name: '4반 시간표', desc: '4반의 시간표를 알려준다'},
@@ -1616,6 +1650,8 @@ client.on('message', (message) => {
   }
 //초대코드
   else if(message.content == '!!초대코드') {
+    if(message.channel.type == 'dm')
+  return message.reply('dm에서 사용할 수 없는 명령어 입니다.')
     let helpImg = '';
     let commandList = [
       {name: '초대코드', desc: 'https://discord.com/api/oauth2/authorize?client_id=742635886998454293&permissions=8&scope=bot' },
@@ -1640,6 +1676,8 @@ client.on('message', (message) => {
   }
  //명령어 목록
  else if(message.content == '!!명령어') {
+  if(message.channel.type == 'dm')
+  return message.reply('dm에서 사용할 수 없는 명령어 입니다.')
     let helpImg = '';
     let commandList = [
       {name: '!!명령어'   ,   desc: '사용가능한 명령어가 나온다'},
