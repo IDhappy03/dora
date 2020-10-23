@@ -42,9 +42,6 @@ client.on('message', (message) => {
       .setFooter('도라에몽')
     message.channel.send(exampleEmbed)
   };
-  if(message.content == `${prefix}`)
-    message.channel.send(`${prefix}`)
-    
   if(message.content == '!!봇') {
     if(message.channel.type == 'dm')
   return message.reply('dm에서 사용할 수 없는 명령어 입니다.')
