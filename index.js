@@ -1588,7 +1588,9 @@ else if(message.content == '!!제작자') {
 
   message.channel.send(embed)
 }
-
+if(message.content == '!!제작자') {
+  message.channel.send(`\`\`디스코드 : 삐삐야#1950\`\``)
+}
 
 
 
