@@ -3,7 +3,7 @@ const client = new Discord.Client();
 const moment = require("moment");
 const { months } = require('moment');
 require("moment-duration-format");
-const token =process.env.token;
+const token = process.env.token;
 
 client.on('ready', () => {
   console.log(`${client.user.tag} 봇에 로그인 하였습니다!`);
@@ -42,6 +42,9 @@ client.on('message', (message) => {
       .setFooter('도라에몽')
     message.channel.send(exampleEmbed)
   };
+  if(message.content == `${prefix}`)
+    message.channel.send(`${prefix}`)
+    
   if(message.content == '!!봇') {
     if(message.channel.type == 'dm')
   return message.reply('dm에서 사용할 수 없는 명령어 입니다.')
