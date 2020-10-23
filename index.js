@@ -1564,30 +1564,6 @@ if(message.content == '!!봇 가동시간') {
 
 
 //제작자
-else if(message.content == '!!제작자') {
-  if(message.channel.type == 'dm')
-  return message.reply('dm에서 사용할 수 없는 명령어 입니다.')
-  let helpImg = '';
-  let commandList = [
-    {name: '디스코드', desc: '삐삐야#1950' },
-
-  ];
-  let commandStr = '';
-  let embed = new Discord.RichEmbed()
-    .setAuthor('', helpImg)
-    .setColor('#CEFFC7')
-    .setFooter(`삐삐야가 만듬`)
-    .setImage('')
-    .setTimestamp()
-  
-  commandList.forEach(x => {
-    commandStr += `• \`\`${changeCommandStringLength(`${x.name}`)}\`\` : **${x.desc}**\n`;
-  });
-
-  embed.addField('제작자: ', commandStr);
-
-  message.channel.send(embed)
-}
 if(message.content == '!!제작자') {
   message.channel.send(`\`\`디스코드 : 삐삐야#1950\`\``)
 }
