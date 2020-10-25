@@ -57,7 +57,7 @@ client.on('message', (message) => {
   return message.reply('dm에서 사용할 수 없는 명령어 입니다.')
     message.reply('될줄알았니?')
   }
-  if(message.content == !!그리기) {
+  if(message.content == "!!그리기") {
     if(message.channel.type == 'dm')
   return message.reply('dm에서 사용할 수 없는 명령어 입니다.')
     message.channel.send('https://www.youtube.com/watch?v=2SojPurh_rM')
