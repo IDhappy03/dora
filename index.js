@@ -1532,29 +1532,17 @@ if(message.content == "비밀도구") {
 
     
 //시간표
-  else if(message.content == "!!4반") {
-    if(message.channel.type == 'dm')
-  return message.reply('dm에서 사용할 수 없는 명령어 입니다.')
-    let helpImg = '';
-    let commandList = [
-      {name: '4반 시간표', desc: '4반의 시간표를 알려준다'},
-    ];
-    let commandStr = '';
-    let embed = new Discord.MessageEmbed()
-      .setAuthor('4반 시간표', helpImg)
-      .setColor('#186de6')
-      .setFooter(``)
-      .setImage('https://cdn.discordapp.com/attachments/680726429058727947/753861517312786482/unknown.png')
-      .setTimestamp()
-    
-    commandList.forEach(x => {
-      commandStr += `• \`\`${changeCommandStringLength(`${x.name}`)}\`\` : **${x.desc}**\n`;
-    });
+if(message.content == "!!4반") {
+  if(message.channel.type == 'dm')
+return message.reply('dm에서 사용할 수 없는 명령어 입니다.')
+  let embed = new Discord.MessageEmbed()
+  embed.setColor("RANDOM")
+  embed.setTitle("4반의 시간표")
+  embed.setImage("https://cdn.discordapp.com/attachments/680726429058727947/753861517312786482/unknown.png")
+  
+  message.channel.send({ embed: embed})
 
-    embed.addField('시간표', commandStr);
-
-    message.channel.send({embed: embed})
-  }
+}
 //초대코드
   else if(message.content == "!!초대코드") {
     if(message.channel.type == 'dm')
