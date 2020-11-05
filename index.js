@@ -1582,15 +1582,11 @@ if(message.content == "비밀도구") {
     message.channel.send({embed: embed})
   }
  //명령어 목록
-if(message.content === "!!명령어") {
-  let embed = new Discord.MessageEmbed()
-  .setAuthor('도라에몽 명령어', helpImg)
-  .setColor("RANDOM")
-  .setFooter(`도라에몽 BOT ❤️`)
-  embed.addField('명령어: ', commandStr)
-  
-  message.channel.send({embed: embed})
-  let commandList = [
+
+if(message.content == "!!명령어") {
+  if(message.channel.type == 'dm')
+  return message.reply('dm에서 사용할 수 없는 명령어 입니다.')
+    let commandList = [
       {name: '!!명령어'   ,   desc: '사용가능한 명령어가 나온다'},
       {name: '!!비밀도구' ,   desc: '도라에몽의 비밀도구가 랜덤으로 나온다'},
       {name: '!!주사위'   ,   desc: '1~6사이의 숫자가 랜덤으로 나온다.'},
@@ -1600,35 +1596,20 @@ if(message.content === "!!명령어") {
       {name: '!!핑'       ,   desc: 'pong'}
     ];
     let commandStr = '';
+    let embed = new Discord.MessageEmbed()
+      .setAuthor('도라에몽 명령어', helpImg)
+      .setColor('#186de6')
+      .setFooter(`도라에몽 BOT ❤️`)
+      .setTimestamp()
     
-}
-// if(message.content == "!!명령어") {
-//   if(message.channel.type == 'dm')
-//   return message.reply('dm에서 사용할 수 없는 명령어 입니다.')
-//     let commandList = [
-//       {name: '!!명령어'   ,   desc: '사용가능한 명령어가 나온다'},
-//       {name: '!!비밀도구' ,   desc: '도라에몽의 비밀도구가 랜덤으로 나온다'},
-//       {name: '!!주사위'   ,   desc: '1~6사이의 숫자가 랜덤으로 나온다.'},
-//       {name: '!!초대코드' ,   desc: '도라에몽을 초대할 수 있는 코드가 나온다'},
-//       {name: '!!아바타'   ,   desc: '자신의 프로필이 나온다.'},
-//       {name: '!!제작자'   ,   desc: '도라에몽 제작자가 나온다'},
-//       {name: '!!핑'       ,   desc: 'pong'}
-//     ];
-//     let commandStr = '';
-//     let embed = new Discord.MessageEmbed()
-//       .setAuthor('도라에몽 명령어', helpImg)
-//       .setColor('#186de6')
-//       .setFooter(`도라에몽 BOT ❤️`)
-//       .setTimestamp()
-    
-//     commandList.forEach(x => {
-//       commandStr += `• \`\`${changeCommandStringLength(`${x.name}`)}\`\` : **${x.desc}**\n`;
-//     })
+    commandList.forEach(x => {
+      commandStr += `• \`\`${changeCommandStringLength(`${x.name}`)}\`\` : **${x.desc}**\n`;
+    })
 
-//     embed.addField('명령어: ', commandStr);
+    embed.addField('명령어: ', commandStr);
 
-//     message.channel.send({embed: embed})
-//   }
+    message.channel.send({embed: embed})
+  }
 
 
 };
