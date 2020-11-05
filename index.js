@@ -1536,7 +1536,7 @@ if(message.content == "!!4반") {
   let embed = new Discord.MessageEmbed()
   embed.setColor("RANDOM")
   embed.setTitle("4반의 시간표")
-  embed.setImage("https://cdn.discordapp.com/attachments/680726429058727947/753861517312786482/unknown.png")
+  embed.setThumbnail("https://cdn.discordapp.com/attachments/680726429058727947/753861517312786482/unknown.png")
   
   message.channel.send({ embed: embed})
 
