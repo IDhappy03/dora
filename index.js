@@ -1533,8 +1533,6 @@ if(message.content == "비밀도구") {
     
 //시간표
 if(message.content == "!!4반") {
-  if(message.channel.type == 'dm')
-return message.reply('dm에서 사용할 수 없는 명령어 입니다.')
   let embed = new Discord.MessageEmbed()
   embed.setColor("RANDOM")
   embed.setTitle("4반의 시간표")
