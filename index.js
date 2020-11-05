@@ -43,7 +43,7 @@ client.on('message', (message) => {
       .setTitle("핑")
       .setDescription("현재 핑을 구하는 중이예요....")
     message.channel.send({ embed: embed }).then(async content => {
-      if (Math.round(client.ws.ping) > 250) {
+      if (Math.round(client.ws.ping) > 10) {
         const pong = new Discord.MessageEmbed()
           .setColor('#ff0000')
           .setTitle("🏓퐁!")
@@ -51,7 +51,7 @@ client.on('message', (message) => {
           .setFooter("아야!")
         await content.edit({ embed: pong })
       }
-      else if(Math.round(client.ws.ping) > 200) {
+      else if(Math.round(client.ws.ping) > 100) {
         const pong = new Discord.MessageEmbed()
           .setColor('#00ff00').setTitle("🏓퐁!")
           .setDescription(`현재 핑: \`\`${Math.round(client.ws.ping)}ms\`\` \n 상태: 양호✅`)
@@ -1666,4 +1666,4 @@ client.on('message', (message) => {
 
 });
 
-client.login(token);742635886998454293
+client.login(token);
