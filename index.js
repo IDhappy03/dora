@@ -2,7 +2,6 @@ const Discord = require('discord.js');
 const client = new Discord.Client();
 const moment = require("moment");
 const { months } = require('moment');
-const { join } = require('path');
 require("moment-duration-format");
 const token = process.env.token;
 
@@ -34,33 +33,15 @@ client.on('message', (message) => {
   //기본 명령어
   if(message.author.bot) return;
 
-  if (message.content ===  `!!핑`) {
-    if(message.channel.type == 'dm') 
-    return message.reply('dm에서 사용할 수 없는 명령어 입니다.')
-    message.channel.send('퐁!')
-    const embed = new Discord.MessageEmbed()
-      .setColor('#00ff00')
-      .setTitle("핑")
-      .setDescription("현재 핑을 구하는 중이예요....")
-    message.channel.send({ embed: embed }).then(async content => {
-      if (Math.round(client.ws.ping) > 10) {
-        const pong = new Discord.MessageEmbed()
-          .setColor('#ff0000')
-          .setTitle("🏓퐁!")
-          .setDescription(`현재 핑: \`\`${Math.round(client.ws.ping)}ms\`\` \n 상태: 불안정💀`)
-          .setFooter("아야!")
-        await content.edit({ embed: pong })
-      }
-      else if(Math.round(client.ws.ping) > 100) {
-        const pong = new Discord.MessageEmbed()
-          .setColor('#00ff00').setTitle("🏓퐁!")
-          .setDescription(`현재 핑: \`\`${Math.round(client.ws.ping)}ms\`\` \n 상태: 양호✅`)
-          .setFooter("상태가 매우 좋아요")
-        await content.edit({ embed: pong })
-      }
-    })
-  }
-
+  if(message.content == "!!핑") {
+    if(message.channel.type == 'dm')
+    return message.reply('dm에서 사용할 수 없는 명령어 입니다.')    
+    const exampleEmbed = new Discord.RichEmbed()
+      .addField('퐁 :ping_pong:', client.ping + 'ms')
+      .setTimestamp()
+      .setFooter('도라에몽')
+    message.channel.send(exampleEmbed)
+  };
   if(message.content == "!!봇") {
     if(message.channel.type == 'dm')
   return message.reply('dm에서 사용할 수 없는 명령어 입니다.')
@@ -81,7 +62,53 @@ client.on('message', (message) => {
   return message.reply('dm에서 사용할 수 없는 명령어 입니다.')
     message.channel.send('https://www.youtube.com/watch?v=2SojPurh_rM')
   }
+  if (message.content === "!!아바타") {
+    if(message.channel.type == 'dm')
+  return message.reply('dm에서 사용할 수 없는 명령어 입니다.')
+    message.channel.send(message.author.displayAvatarURL);
+    
+  }else if(message.content === "!!내정보") {
+    if(message.channel.type == 'dm')
+  return message.reply('dm에서 사용할 수 없는 명령어 입니다.')
+    let img = `${message.author.avatarURL}`
+    let embed = new Discord.RichEmbed()
+    .setTitle(message.author.username+"님의 정보")
+    .setThumbnail(img)
+    .setColor("RANDOM")
+    .addField("전체이름", `${message.author.username}#${message.author.discriminator}`, true)
+    .addField("이름", `${message.author.username}`, true)
+    .addField("태그", `${message.author.discriminator}`, true)
+    .addField("아이디",`${message.author.id}`, true)
+    .addField("프로필링크", `[프로필사진 링크](${message.author.avatarURL})`, true)
+    .addField("계정 만든날짜", `${message.author.createdAt}`)
+    .addField("서버 들어온날짜", `${message.member.joinedAt}`)
+  message.channel.send(embed)
+  }
 
+  if(message.content === "!!리스트") {
+    if(message.channel.type == 'dm')
+  return message.reply('dm에서 사용할 수 없는 명령어 입니다.')
+    if(message.author.id === "432038330264190977") {
+        let embed = new Discord.RichEmbed()
+        .setColor("RANDOM")
+        let arr = client.guilds.array();
+        let list = '';
+        list = `\`\`\`css\n`;
+    
+        for(let i=0;i<arr.length;i++) {
+          // list += `${arr[i].name} - ${arr[i].id}\n`
+          list += `${arr[i].name}\n`
+        }
+        list += `\`\`\`\n`
+        embed.addField('list:',        `${list}`);
+        
+        
+        embed.setTimestamp()
+        message.channel.send(embed);
+    } else
+      message.channel.send(`**__${message.author.username}__**넌 안됨 ㅅㄱ`)
+    }
+  
   //비밀도구,주사위
   if(message.content.startsWith("!!비밀도구")) {
     if(message.channel.type == 'dm')
@@ -1497,27 +1524,54 @@ client.on('message', (message) => {
     let max = arr.length;     
     let index = parseInt(Math.random() * (max - min) + min);
     message.channel.send(`${arr[index]} (이)라는 도구가 나왔어.`)
-
-if(message.content === "!!내정보") {
+  }
+  //봇 정보
+  if(message.content == "!!si") {
     if(message.channel.type == 'dm')
   return message.reply('dm에서 사용할 수 없는 명령어 입니다.')
-    let img = `${message.author.avatarURL}`
-    let embed = new Discord.MessageEmbed()
-    .setTitle(message.author.username+"님의 정보")
-    .setThumbnail(`${message.author.displayAvatarURL({ dynamic: true })}`)
-    .setColor("RANDOM")
-    .addField("전체이름", `${message.author.username}#${message.author.discriminator}`, true)
-    .addField("이름", `${message.author.username}`, true)
-    .addField("태그", `${message.author.discriminator}`, true)
-    .addField("아이디",`${message.author.id}`, true)
-    .addField("프로필링크", `[프로필사진 링크](${message.author.displayAvatarURL({ dynamic: true })})`)
-    .addField("계정 만든날짜", `${message.author.createdAt}`)
-    .addField("서버 들어온날짜", `${message.member.joinedAt}`)
-  message.channel.send({embed: embed})
+    let embed = new Discord.RichEmbed()
+    let img = 'https://cdn.discordapp.com/attachments/747789641826172948/750699703758225448/744af0d16a6eddc1.jpg';
+    var duration = moment.duration(client.uptime).format(" D [일], H [시간], m [분], s [초]");
+    embed.setColor('#186de6')
+    embed.setAuthor('도라에몽의 서버 정보', img)
+    embed.setFooter(`도라에몽 BOT ❤️`)
+    embed.addBlankField()
+    embed.addField('RAM usage',    `${(process.memoryUsage().heapUsed / 1024 / 1024).toFixed(2)} MB`, true);
+    embed.addField('uptime', `${duration}`, true);
+    embed.addField('user',         `${client.users.size.toLocaleString()}`, true);
+    embed.addField('server',       `${client.guilds.size.toLocaleString()}`, true);
+    embed.addField('ping',          client.ping + 'ms', true);
+    //embed.addField('message',      `${client.user.username}`, true);
+    //embed.addField('channel',      `${client.channels.size.toLocaleString()}`, true);
+    //embed.addField('Discord.js',   `v${Discord.version}`, true);
+    //embed.addField('Node',         `${process.version}`, true);
+    
+    embed.setTimestamp()
+    message.channel.send(embed);
   }
 
 
-};
+if(message.content == "!!봇 가동시간") {
+  if(message.channel.type == 'dm')
+  return message.reply('dm에서 사용할 수 없는 명령어 입니다.')
+  let embed = new Discord.RichEmbed()
+  var duration = moment.duration(client.uptime).format("D [일]  H [시간]  m [분]  s [초]");
+  embed.addField('`가동시간`', `${duration}`, true);
+
+  embed.setTimestamp()
+  message.channel.send(embed);
+}
+
+
+//제작자
+if(message.content == "!!제작자") {
+  message.channel.send(`\`\`\`css\n디스코드 : 삐삐야#1950\`\`\``)
+}
+
+
+
+
+});
 
 function changeCommandStringLength(str, limitLen = 8) {
   let tmp = str;
@@ -1533,135 +1587,101 @@ function changeCommandStringLength(str, limitLen = 8) {
 client.on('message', (message) => {
   //기본 명령어
   if(message.author.bot) return;
-  //작동이 안되는 명령어
-  if(message.content === "!!리스트") {
+  if(message.content == "비밀도구") {
     if(message.channel.type == 'dm')
   return message.reply('dm에서 사용할 수 없는 명령어 입니다.')
-    if(message.author.id === "432038330264190977") {
-        let embed = new Discord.MessageEmbed()
-        .setColor("RANDOM")
-        let arr = client.guilds.array;
-        let list = `${client.guilds.array}`
+    message.channel.send('이건 없음')
+  }
 
+  if(message.content.startsWith("!!인증번호")) {
+    if(message.channel.type == 'dm')
+  return message.reply('dm에서 사용할 수 없는 명령어 입니다.')
+    let min = 0;
+    let max = 99999;
+    let dice_num = parseInt(Math.random() * (max - min) + min);
+    message.channel.send(`인증번호:__**${dice_num}**__ 10분 이내에 입력해주세요!` )}
 
-
-        embed.addField('list:',        `${list}\n\`\`아직 실력이 부족해 찾을 수 없음\`\``);
-        
-        
-        embed.setTimestamp()
-        message.channel.send({embed: embed});
-    } else
-      message.channel.send(`**__${message.author.username}__**넌 안됨 ㅅㄱ`)
-    }
-
-    if(message.content == "!!봇 가동시간") {
-      if(message.channel.type == 'dm')
-      return message.reply('dm에서 사용할 수 없는 명령어 입니다.')
-      let embed = new Discord.MessageEmbed()
-      var duration = moment.duration(client.uptime).format("D [일]  H [시간]  m [분]  s [초]");
-      embed.addField('`가동시간`', `${duration}`, true);
     
-      embed.setTimestamp()
-      message.channel.send({embed: embed});
-    }
+//시간표
+  else if(message.content == "!!4반") {
+    if(message.channel.type == 'dm')
+  return message.reply('dm에서 사용할 수 없는 명령어 입니다.')
+    let helpImg = '';
+    let commandList = [
+      {name: '4반 시간표', desc: '4반의 시간표를 알려준다'},
+    ];
+    let commandStr = '';
+    let embed = new Discord.RichEmbed()
+      .setAuthor('4반 시간표', helpImg)
+      .setColor('#186de6')
+      .setFooter(``)
+      .setImage('https://cdn.discordapp.com/attachments/680726429058727947/753861517312786482/unknown.png')
+      .setTimestamp()
     
-    
-    //제작자
-    if(message.content == "!!제작자") {
-      message.channel.send(`\`\`\`css\n디스코드 : 삐삐야#1950\`\`\``)
-    }
-    
-    if(message.content == "비밀도구") {
-        if(message.channel.type == 'dm')
-      return message.reply('dm에서 사용할 수 없는 명령어 입니다.')
-        message.channel.send('이건 없음')
-      }
-    
-      if(message.content.startsWith("!!인증번호")) {
-        if(message.channel.type == 'dm')
-      return message.reply('dm에서 사용할 수 없는 명령어 입니다.')
-        let min = 0;
-        let max = 99999;
-        let dice_num = parseInt(Math.random() * (max - min) + min);
-        message.channel.send(`인증번호:__**${dice_num}**__ 10분 이내에 입력해주세요!` )}
-    
-        
-    //시간표
-    if(message.content == "!!4반") {
-      let embed = new Discord.MessageEmbed()
-      embed.setColor("RANDOM")
-      embed.setTitle("4반의 시간표")
-      embed.setThumbnail("https://cdn.discordapp.com/attachments/680726429058727947/753861517312786482/unknown.png")
-      
-      message.channel.send({ embed: embed})
-    
-    }
-    //초대코드
-      else if(message.content == "!!초대코드") {
-        if(message.channel.type == 'dm')
-      return message.reply('dm에서 사용할 수 없는 명령어 입니다.')
-        let helpImg = '';
-        let commandList = [
-          {name: '초대코드', desc: 'https://discord.com/api/oauth2/authorize?client_id=742635886998454293&permissions=8&scope=bot' },
-          
-    
-        ];
-        let commandStr = '';
-        let embed = new Discord.MessageEmbed()
-          .setAuthor('도라에몽 초대코드', helpImg)
-          .setColor('#CEFFC7')
-          .setFooter(`❤️`)
-          .setImage('https://cdn.discordapp.com/attachments/747789641826172948/750699703758225448/744af0d16a6eddc1.jpg')
-          .setTimestamp()
-        
-        commandList.forEach(x => {
-          commandStr += `• \`\`${changeCommandStringLength(`${x.name}`)}\`\` : **${x.desc}**\n`;
-        });
-    
-        embed.addField('초대코드: ', commandStr);
-    
-        message.channel.send({embed: embed})
-      }
-     //명령어 목록
-    
-    if(message.content == "!!명령어") {
-      if(message.channel.type == 'dm')
-      return message.reply('dm에서 사용할 수 없는 명령어 입니다.')
-        let commandList = [
-          {name: '!!명령어'   ,   desc: '사용가능한 명령어가 나온다'},
-          {name: '!!비밀도구' ,   desc: '도라에몽의 비밀도구가 랜덤으로 나온다'},
-          {name: '!!주사위'   ,   desc: '1~6사이의 숫자가 랜덤으로 나온다.'},
-          {name: '!!초대코드' ,   desc: '도라에몽을 초대할 수 있는 코드가 나온다'},
-          {name: '!!아바타'   ,   desc: '자신의 프로필이 나온다.'},
-          {name: '!!제작자'   ,   desc: '도라에몽 제작자가 나온다'},
-          {name: '!!핑'       ,   desc: 'pong'}
-        ];
-        let commandStr = '';
-        let embed = new Discord.MessageEmbed()
-          .setAuthor('도라에몽 명령어', helpImg)
-          .setColor('#186de6')
-          .setFooter(`도라에몽 BOT ❤️`)
-          .setTimestamp()
-        
-        commandList.forEach(x => {
-          commandStr += `• \`\`${changeCommandStringLength(`${x.name}`)}\`\` : **${x.desc}**\n`;
-        })
-    
-        embed.addField('명령어: ', commandStr);
-    
-        message.channel.send({embed: embed})
-      }
-    
-    
+    commandList.forEach(x => {
+      commandStr += `• \`\`${changeCommandStringLength(`${x.name}`)}\`\` : **${x.desc}**\n`;
     });
-    if (message.content === "!!아바타") {
-        if(message.channel.type == 'dm')
-      return message.reply('dm에서 사용할 수 없는 명령어 입니다.')
-        message.channel.send(`${message.author.displayAvatarURL({ dynamic: true })}`);  
-    }
+
+    embed.addField('시간표', commandStr);
+
+    message.channel.send(embed)
+  }
+//초대코드
+  else if(message.content == "!!초대코드") {
+    if(message.channel.type == 'dm')
+  return message.reply('dm에서 사용할 수 없는 명령어 입니다.')
+    let helpImg = '';
+    let commandList = [
+      {name: '초대코드', desc: 'https://discord.com/api/oauth2/authorize?client_id=742635886998454293&permissions=8&scope=bot' },
+      
+
+    ];
+    let commandStr = '';
+    let embed = new Discord.RichEmbed()
+      .setAuthor('도라에몽 초대코드', helpImg)
+      .setColor('#CEFFC7')
+      .setFooter(`❤️`)
+      .setImage('https://cdn.discordapp.com/attachments/747789641826172948/750699703758225448/744af0d16a6eddc1.jpg')
+      .setTimestamp()
     
-  
+    commandList.forEach(x => {
+      commandStr += `• \`\`${changeCommandStringLength(`${x.name}`)}\`\` : **${x.desc}**\n`;
+    });
+
+    embed.addField('초대코드: ', commandStr);
+
+    message.channel.send(embed)
+  }
+ //명령어 목록
+ else if(message.content == "!!명령어") {
+  if(message.channel.type == 'dm')
+  return message.reply('dm에서 사용할 수 없는 명령어 입니다.')
+    let helpImg = '';
+    let commandList = [
+      {name: '!!명령어'   ,   desc: '사용가능한 명령어가 나온다'},
+      {name: '!!비밀도구' ,   desc: '도라에몽의 비밀도구가 랜덤으로 나온다'},
+      {name: '!!주사위'   ,   desc: '1~6사이의 숫자가 랜덤으로 나온다.'},
+      {name: '!!초대코드' ,   desc: '도라에몽을 초대할 수 있는 코드가 나온다'},
+      {name: '!!아바타'   ,   desc: '자신의 프로필이 나온다.'},
+      {name: '!!제작자'   ,   desc: '도라에몽 제작자가 나온다'},
+      {name: '!!핑'       ,   desc: 'pong'}
+    ];
+    let commandStr = '';
+    let embed = new Discord.RichEmbed()
+      .setAuthor('도라에몽 명령어', helpImg)
+      .setColor('#186de6')
+      .setFooter(`도라에몽 BOT ❤️`)
+      .setTimestamp()
+    
+    commandList.forEach(x => {
+      commandStr += `• \`\`${changeCommandStringLength(`${x.name}`)}\`\` : **${x.desc}**\n`;
+    });
+
+    embed.addField('명령어: ', commandStr);
+
+    message.channel.send(embed)
+  }
 
 });
 
-client.login(token);
+client.login(token);742635886998454293
