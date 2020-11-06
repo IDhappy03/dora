@@ -1682,15 +1682,6 @@ client.on('message', (message) => {
     message.channel.send(embed)
   }
 
-  if(message.content === `!!한강`) {
-    const fetch = require('node-fetch')
-          
-      fetch('http://hangang.dkserver.wo.tc/').then(res => res.json()).then(json => {
-          if(json.result) {
-              message.channel.send(`체크시간 : \`\`[${json["time"]}]\`\`\n체크지역 : \`\`[${json["true"]}]\`\`\n현재온도 : \`\`[${json["temp"]}]\`\``)
-          } else { message.channel.send("API에 연결할 수 없음")}
-  })
-  }
 });
 
 client.login(token);742635886998454293
