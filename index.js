@@ -1653,35 +1653,59 @@ client.on('message', (message) => {
     message.channel.send(embed)
   }
  //명령어 목록
- else if(message.content == "!!명령어") {
-  if(message.channel.type == 'dm')
-  return message.reply('dm에서 사용할 수 없는 명령어 입니다.')
-    let helpImg = '';
-    let commandList = [
-      {name: '!!명령어'   ,   desc: '사용가능한 명령어가 나온다'},
-      {name: '!!비밀도구' ,   desc: '도라에몽의 비밀도구가 랜덤으로 나온다'},
-      {name: '!!주사위'   ,   desc: '1~6사이의 숫자가 랜덤으로 나온다.'},
-      {name: '!!초대코드' ,   desc: '도라에몽을 초대할 수 있는 코드가 나온다'},
-      {name: '!!아바타'   ,   desc: '자신의 프로필이 나온다.'},
-      {name: '!!제작자'   ,   desc: '도라에몽 제작자가 나온다'},
-      {name: '!!핑'       ,   desc: 'pong'}
-    ];
-    let commandStr = '';
-    let embed = new Discord.RichEmbed()
-      .setAuthor('도라에몽 명령어', helpImg)
-      .setColor('#186de6')
-      .setFooter(`도라에몽 BOT ❤️`)
-      .setTimestamp()
+//  else if(message.content == "!!명령어") {
+//   if(message.channel.type == 'dm')
+//   return message.reply('dm에서 사용할 수 없는 명령어 입니다.')
+//     let helpImg = '';
+//     let commandList = [
+//       {name: '!!명령어'   ,   desc: '사용가능한 명령어가 나온다'},
+//       {name: '!!비밀도구' ,   desc: '도라에몽의 비밀도구가 랜덤으로 나온다'},
+//       {name: '!!주사위'   ,   desc: '1~6사이의 숫자가 랜덤으로 나온다.'},
+//       {name: '!!초대코드' ,   desc: '도라에몽을 초대할 수 있는 코드가 나온다'},
+//       {name: '!!아바타'   ,   desc: '자신의 프로필이 나온다.'},
+//       {name: '!!제작자'   ,   desc: '도라에몽 제작자가 나온다'},
+//       {name: '!!핑'       ,   desc: 'pong'}
+//     ];
+//     let commandStr = '';
+//     let embed = new Discord.RichEmbed()
+//       .setAuthor('도라에몽 명령어', helpImg)
+//       .setColor('#186de6')
+//       .setFooter(`도라에몽 BOT ❤️`)
+//       .setTimestamp()
     
-    commandList.forEach(x => {
-      commandStr += `• \`\`${changeCommandStringLength(`${x.name}`)}\`\` : **${x.desc}**\n`;
-    });
+//     commandList.forEach(x => {
+//       commandStr += `• \`\`${changeCommandStringLength(`${x.name}`)}\`\` : **${x.desc}**\n`;
+//     });
 
-    embed.addField('명령어: ', commandStr);
+//     embed.addField('명령어: ', commandStr);
 
+//     message.channel.send(embed)
+//   }
+  if(message.content === '!!명령어') {
+    let img = 'https://cdn.discordapp.com/avatars/742635886998454293/0dd4ce22d10ee22c010624d28990e1e3.png?size=128';
+    let embed = new Discord.RichEmbed()
+    
+    .setTitle('도라에몽 명령어')
+    .setColor("RANDOM")
+    .setTimestamp()
+    .addField('일반' , `\`\`!!명령어\`\`,\`\`!!핑\`\`,\`\`!!초대코드\`\`,\`\`!!4반\`\``)
+    .addField(`정보` , `\`\`!!아바타\`\`,\`\`!!제작자\`\`,\`\`!!내정보\`\`,\`\`!!리스트\`\``)
+    .addField(`놀이`, `\`\`!!그리기\`\`,\`\`!!비밀도구\`\`,\`\`!!주사위\`\`,\`\`!!qlalfehrn\`\`,\`\`!!인증번호\`\``)
+    .addField(`봇 정보`, `\`\`!!si\`\`,\`\`!!제작자\`\``)
+  
     message.channel.send(embed)
   }
+});
+client.on('typingStart', async (channel, user) => {
+  console.log(`${channel.name}에서 ${user.tag}가 입력 중`)
+})
+client.on('messageUpdate', async(oldMessage, newMessage) => {
+  if(oldMessage.content === newMessage.content) return // 임베드로 인한 수정같은 경우 
+  oldMessage.channel.send(`<@!${oldMessage.author.id}> 님이 \`${oldMessage.content}\` 를 \`${newMessage.content}\` 로 수정했습니다.`)
+})
+client.on('messageDelete', async message => {
 
+message.channel.send(`<@!${message.author.id}> 님이 \`${message.content}\` 삭제하셨습니다.`)
 });
 
 client.login(token);742635886998454293
