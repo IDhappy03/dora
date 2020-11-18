@@ -1627,31 +1627,14 @@ client.on('message', (message) => {
     message.channel.send(embed)
   }
 //초대코드
-  else if(message.content == "!!초대코드") {
-    if(message.channel.type == 'dm')
-  return message.reply('dm에서 사용할 수 없는 명령어 입니다.')
-    let helpImg = '';
-    let commandList = [
-      {name: '초대코드', desc: 'https://discord.com/api/oauth2/authorize?client_id=742635886998454293&permissions=8&scope=bot' },
-      
+if(message.content === `${prefix}초대코드`) {
+  let embed = new Discord.MessageEmbed()
 
-    ];
-    let commandStr = '';
-    let embed = new Discord.RichEmbed()
-      .setAuthor('도라에몽 초대코드', helpImg)
-      .setColor('#CEFFC7')
-      .setFooter(`❤️`)
-      .setImage('https://cdn.discordapp.com/attachments/747789641826172948/750699703758225448/744af0d16a6eddc1.jpg')
-      .setTimestamp()
-    
-    commandList.forEach(x => {
-      commandStr += `• \`\`${changeCommandStringLength(`${x.name}`)}\`\` : **${x.desc}**\n`;
-    });
-
-    embed.addField('초대코드: ', commandStr);
-
-    message.channel.send(embed)
-  }
+  .setColor("RANDOM")
+  .addField('저를 초대해주시겠다니 감사해요! \`\`초대주소\`\` 를 사용하여 초대 가능해요!', `[초대 주소](https://discord.com/api/oauth2/authorize?client_id=742635886998454293&permissions=8&scope=bot)`, true)
+  
+  message.channel.send({embed:embed})
+}
  //명령어 목록
 //  else if(message.content == "!!명령어") {
 //   if(message.channel.type == 'dm')
