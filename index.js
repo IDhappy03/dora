@@ -1627,13 +1627,13 @@ client.on('message', (message) => {
     message.channel.send(embed)
   }
 //초대코드
-if(message.content === `${prefix}초대코드`) {
-  let embed = new Discord.MessageEmbed()
+if(message.content === `!!초대코드`) {
+  let embed = new Discord.RichEmbed()
 
   .setColor("RANDOM")
   .addField('저를 초대해주시겠다니 감사해요! \`\`초대주소\`\` 를 사용하여 초대 가능해요!', `[초대 주소](https://discord.com/api/oauth2/authorize?client_id=742635886998454293&permissions=8&scope=bot)`, true)
   
-  message.channel.send({embed:embed})
+  message.channel.send(embed)
 }
  //명령어 목록
 //  else if(message.content == "!!명령어") {
