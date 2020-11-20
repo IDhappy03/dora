@@ -1672,16 +1672,17 @@ if(message.content === `!!초대코드`) {
     .setColor("RANDOM")
     .setTimestamp()
     .addField('일반' , `\`\`!!명령어\`\`,\`\`!!핑\`\`,\`\`!!초대코드\`\`,\`\`!!4반\`\``)
-    .addField(`정보` , `\`\`!!아바타\`\`,\`\`!!제작자\`\`,\`\`!!내정보\`\`,\`\`!!리스트\`\``)
+    .addField(`정보` , `\`\`!!아바타\`\`,\`\`!!제작자\`\`,\`\`!!내정보\`\`,`)
     .addField(`놀이`, `\`\`!!그리기\`\`,\`\`!!비밀도구\`\`,\`\`!!주사위\`\`,\`\`!!qlalfehrn\`\`,\`\`!!인증번호\`\``)
-    .addField(`봇 정보`, `\`\`!!si\`\`,\`\`!!제작자\`\``)
+    .addField(`봇 정보`, `\`\`!!si\`\`,\`\`!!제작자\`\`,\`\`!!리스트\`\``)
   
     message.channel.send(embed)
   }
+
+  if(message.content === '돈받기') {
+    message.channel.send(`농협 356-1430-6858-93 여기로 후원을 해주세요.`)
+  }
 });
-client.on('typingStart', async (channel, user) => {
-  console.log(`${channel.name}에서 ${user.tag}가 입력 중`)
-})
 client.on('messageUpdate', async(oldMessage, newMessage) => {
   if(oldMessage.content === newMessage.content) return // 임베드로 인한 수정같은 경우 
   oldMessage.channel.send(`<@!${oldMessage.author.id}> 님이 \`${oldMessage.content}\` 를 \`${newMessage.content}\` 로 수정했습니다.`)
