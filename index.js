@@ -1680,7 +1680,7 @@ if(message.content === `!!초대코드`) {
   }
 
   if(message.content === '돈받기') {
-    message.channel.send(`<!@everyone>\`\`농협 356-1430-6858-93 \`\`여기로 후원을 해주세요.`)
+    message.channel.send(`||@everyone||\n \`\`농협 356-1430-6858-93 \`\`여기로 후원을 해주세요.`)
   }
 });
 client.on('messageUpdate', async(oldMessage, newMessage) => {
