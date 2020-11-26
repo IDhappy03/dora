@@ -1615,7 +1615,7 @@ client.on('message', (message) => {
       .setAuthor('4반 시간표', helpImg)
       .setColor('#186de6')
       .setFooter(``)
-      .setImage('https://cdn.discordapp.com/attachments/680726429058727947/753861517312786482/unknown.png')
+      .setImage('https://cdn.discordapp.com/attachments/770085057536065588/781036006408978466/1_1.png')
       .setTimestamp()
     
     commandList.forEach(x => {
