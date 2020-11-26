@@ -1683,13 +1683,6 @@ if(message.content === `!!초대코드`) {
     message.channel.send(`||@everyone||\n \`\`농협 356-1430-6858-93 \`\`여기로 후원을 해주세요.`)
   }
 });
-client.on('messageUpdate', async(oldMessage, newMessage) => {
-  if(oldMessage.content === newMessage.content) return // 임베드로 인한 수정같은 경우 
-  oldMessage.channel.send(`<@!${oldMessage.author.id}> 님이 \`${oldMessage.content}\` 를 \`${newMessage.content}\` 로 수정했습니다.`)
-})
-client.on('messageDelete', async message => {
 
-message.channel.send(`<@!${message.author.id}> 님이 \`${message.content}\` 삭제하셨습니다.`)
-});
 
 client.login(token);742635886998454293
