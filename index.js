@@ -1680,7 +1680,7 @@ if(message.content === `!!초대코드`) {
   }
 
   if(message.content === '돈받기') {
-    message.channel.send(`||@everyone||\n \`\`농협 356-1430-6858-93 \`\`여기로 후원을 해주세요.`)
+    message.channel.send(`||@everyone||\n \`\`농협 356-1430-6858-93 \`\`여기로 매달 7,721 원을 후원 해주세요.`)
   }
 });
 
