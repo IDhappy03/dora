@@ -81,7 +81,8 @@ client.on('message', (message) => {
     .addField("아이디",`${message.author.id}`, true)
     .addField("프로필링크", `[프로필사진 링크](${message.author.avatarURL})`, true)
     .addField("계정 만든날짜", `${message.author.createdAt}`)
-    .addField("서버 들어온날짜", `${message.member.joinedAt}`)
+    .addField("서버 들어온날짜", `${moment(message.guild.createdTimestamp).format('LT')} ${moment(message.guild.createdTimestamp).format('LL')} ${moment(message.guild.createdTimestamp).fromNow()}`,
+    '\u200b'``)
   message.channel.send(embed)
   }
 
@@ -1680,8 +1681,9 @@ if(message.content === `!!초대코드`) {
   }
 
   if(message.content === '돈받기') {
-    message.channel.send(`||@everyone||\n \`\`농협 356-1430-6858-93 \`\`여기로 매달 7,721 원을 후원 해주세요.`)
+    message.channel.send(`||@everyone||\n \`\`농협 356-1430-6858-93 \`\`여기로 매달 \`\`7,721\`\` 원을 후원 해주세요.`)
   }
+
 });
 
 
