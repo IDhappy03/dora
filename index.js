@@ -40,7 +40,7 @@ client.on('message', (message) => {
       .setTitle("핑")
       .setDescription("현재 핑을 구하는 중이예요....")
     message.channel.send(embed).then(async content => {
-      if (Math.round(client.ws.ping) > 20) {
+      if (Math.round(client.ws.ping) > 40) {
         const pong = new Discord.RichEmbed()
           .setColor('#ff0000')
           .setTitle("🏓퐁!")
@@ -48,7 +48,7 @@ client.on('message', (message) => {
           .setFooter("아야!")
         await content.edit(embed)
       }
-      else if(Math.round(client.ws.ping) > 10) {
+      else if(Math.round(client.ws.ping) > 30) {
         const pong = new Discord.RichEmbed()
           .setColor('#00ff00').setTitle("🏓퐁!")
           .setDescription(`현재 핑: \`\`${Math.round(client.ping)}ms\`\` \n 상태: 양호✅`)
