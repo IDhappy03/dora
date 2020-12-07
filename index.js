@@ -33,15 +33,30 @@ client.on('message', (message) => {
   //기본 명령어
   if(message.author.bot) return;
 
-  if(message.content == "!!핑") {
-    if(message.channel.type == 'dm')
-    return message.reply('dm에서 사용할 수 없는 명령어 입니다.')    
-    const exampleEmbed = new Discord.RichEmbed()
-      .addField('퐁 :ping_pong:', client.ping + 'ms')
-      .setTimestamp()
-      .setFooter('도라에몽')
-    message.channel.send(exampleEmbed)
-  };
+  if (message.content ===  `!!핑`) {
+    message.channel.send('퐁!')
+    const embed = new Discord.RichEmbed()
+      .setColor('#00ff00')
+      .setTitle("핑")
+      .setDescription("현재 핑을 구하는 중이예요....")
+    message.channel.send(embed).then(async content => {
+      if (Math.round(client.ws.ping) > 250) {
+        const pong = new Discord.RichEmbed()
+          .setColor('#ff0000')
+          .setTitle("🏓퐁!")
+          .setDescription(`현재 핑: \`\`${Math.round(client.ping)}ms\`\` \n 상태: 불안정💀`)
+          .setFooter("아야!")
+        await content.edit(embed)
+      }
+      else if(Math.round(client.ws.ping) > 200) {
+        const pong = new Discord.RichEmbed()
+          .setColor('#00ff00').setTitle("🏓퐁!")
+          .setDescription(`현재 핑: \`\`${Math.round(client.ping)}ms\`\` \n 상태: 양호✅`)
+          .setFooter("상태가 매우 좋아요")
+        await content.edit(embed)
+      }
+    })
+  }
   if(message.content == "!!봇") {
     if(message.channel.type == 'dm')
   return message.reply('dm에서 사용할 수 없는 명령어 입니다.')
