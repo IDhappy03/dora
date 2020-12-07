@@ -65,7 +65,7 @@ client.on('message', (message) => {
   if (message.content === "!!아바타") {
     if(message.channel.type == 'dm')
   return message.reply('dm에서 사용할 수 없는 명령어 입니다.')
-    message.channel.send(message.author.displayAvatarURL);
+    message.channel.send(`${message.author.displayAvatarURL}`);
     
   }else if(message.content === "!!내정보") {
     if(message.channel.type == 'dm')
