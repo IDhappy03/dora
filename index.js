@@ -48,7 +48,7 @@ client.on('message', (message) => {
           .setFooter("아야!")
         await content.edit(embed)
       }
-      else if(Math.round(client.ws.ping) > 1) {
+      else if(Math.round(client.ws.ping) > 10) {
         const pong = new Discord.RichEmbed()
           .setColor('#00ff00').setTitle("🏓퐁!")
           .setDescription(`현재 핑: \`\`${Math.round(client.ping)}ms\`\` \n 상태: 양호✅`)
