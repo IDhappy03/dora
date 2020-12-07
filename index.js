@@ -1615,7 +1615,7 @@ client.on('message', (message) => {
       .setAuthor('4반 시간표', helpImg)
       .setColor('#186de6')
       .setFooter(``)
-      .setImage('https://cdn.discordapp.com/attachments/770085057536065588/781036006408978466/1_1.png')
+      .setImage(`https://cdn.discordapp.com/attachments/770085057536065588/781036006408978466/1_1.png`)
       .setTimestamp()
     
     commandList.forEach(x => {
@@ -1625,6 +1625,10 @@ client.on('message', (message) => {
     embed.addField('시간표', commandStr);
 
     message.channel.send(embed)
+  }
+
+  if(message.content === "4반") {
+    message.channel.send(`https://cdn.discordapp.com/attachments/770085057536065588/781036006408978466/1_1.png`)
   }
 //초대코드
 if(message.content === `!!초대코드`) {
