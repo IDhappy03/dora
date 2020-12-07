@@ -1541,10 +1541,10 @@ client.on('message', (message) => {
     embed.addField('user',         `${client.users.size.toLocaleString()}`, true);
     embed.addField('server',       `${client.guilds.size.toLocaleString()}`, true);
     embed.addField('ping',          client.ping + 'ms', true);
-    //embed.addField('message',      `${client.user.username}`, true);
-    //embed.addField('channel',      `${client.channels.size.toLocaleString()}`, true);
-    //embed.addField('Discord.js',   `v${Discord.version}`, true);
-    //embed.addField('Node',         `${process.version}`, true);
+    embed.addField('message',      `${client.user.username}`, true);
+    embed.addField('channel',      `${client.channels.size.toLocaleString()}`, true);
+    embed.addField('Discord.js',   `v${Discord.version}`, true);
+    embed.addField('Node',         `${process.version}`, true);
     
     embed.setTimestamp()
     message.channel.send(embed);
@@ -1627,9 +1627,6 @@ client.on('message', (message) => {
     message.channel.send(embed)
   }
 
-  if(message.content === "4반") {
-    message.channel.send(`https://cdn.discordapp.com/attachments/770085057536065588/781036006408978466/1_1.png`)
-  }
 //초대코드
 if(message.content === `!!초대코드`) {
   let embed = new Discord.RichEmbed()
