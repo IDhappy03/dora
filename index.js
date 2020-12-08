@@ -62,6 +62,12 @@ client.on('message', (message) => {
   return message.reply('dm에서 사용할 수 없는 명령어 입니다.')
     message.channel.send('https://dashboard.heroku.com/apps')
   }
+  if(message.content === `🖕`) {
+    if(message.channel.type === 'dm')
+    return message.reply('dm에서 사용할 수 없는 명령어 입니다.')
+    message.delete()
+    message.channel.send(`👁️👃👁️\n🖕👄🖕\n||<@${message.author.id}>||`)
+  }
   if(message.content == "!!도움") {
     if(message.channel.type == 'dm')
   return message.reply('dm에서 사용할 수 없는 명령어 입니다.')
