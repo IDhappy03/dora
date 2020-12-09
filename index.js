@@ -1647,6 +1647,29 @@ client.on('message', (message) => {
 
     message.channel.send(embed)
   }
+  else if(message.content == "!!12반") {
+    if(message.channel.type == 'dm')
+  return message.reply('dm에서 사용할 수 없는 명령어 입니다.')
+    let helpImg = '';
+    let commandList = [
+      {name: '12반 시간표', desc: '12반의 시간표를 알려준다'},
+    ];
+    let commandStr = '';
+    let embed = new Discord.RichEmbed()
+      .setAuthor('12반 시간표', helpImg)
+      .setColor('#186de6')
+      .setFooter(``)
+      .setImage(`https://cdn.discordapp.com/attachments/782810149433114654/786048783770320936/unknown.png`)
+      .setTimestamp()
+    
+    commandList.forEach(x => {
+      commandStr += `• \`\`${changeCommandStringLength(`${x.name}`)}\`\` : **${x.desc}**\n`;
+    });
+
+    embed.addField('시간표', commandStr);
+
+    message.channel.send(embed)
+  }
 
 //초대코드
 if(message.content === `!!초대코드`) {
