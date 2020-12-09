@@ -105,6 +105,11 @@ client.on('message', (message) => {
     .addField("서버 들어온날짜", `${message.member.joinedAt}`)
   message.channel.send(embed)
   }
+  if(message.content === '!!내정보') {
+    if(message.channel.type === 'dm') 
+    return message.reply("dm에서 사용할 수 없는 명령어 입니다.") 
+  message.channel.send(`\`\`\`md\n#${message.author.username}\n* 태그: ${message.author.username}#${message.author.discriminator}\n- 생일 ${message.author.createdAt}\n- 서버가입 ${message.member.joinedAt}`)
+  }
 
   if(message.content === "!!리스트") {
     if(message.channel.type == 'dm')
