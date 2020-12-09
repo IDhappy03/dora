@@ -109,7 +109,7 @@ client.on('message', (message) => {
   if(message.content === '!!내정보') {
     if(message.channel.type === 'dm') 
     return message.reply("dm에서 사용할 수 없는 명령어 입니다.") 
-  message.channel.send(`\`\`\`md\n# ${message.author.username}\n* 태그: ${message.author.username}#${message.author.discriminator}\n- 생일 ${message.author.createdAt}\n- 서버가입 ${message.member.joinedAt}\n\`\`\``)
+  message.channel.send(`\`\`\`md\n# ${message.author.username}\n* 태그: ${message.author.username}#${message.author.discriminator}\n- 아이디: ${message.author.id}\n- 생일 ${message.author.createdAt}\n- 서버가입 ${message.member.joinedAt}\n\`\`\``)
   }
 
   if(message.content === "!!리스트") {
