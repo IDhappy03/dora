@@ -88,27 +88,28 @@ client.on('message', (message) => {
   return message.reply('dm에서 사용할 수 없는 명령어 입니다.')
     message.channel.send(`${message.author.displayAvatarURL}`);
     
-  }else if(message.content === "!!내정보") {
-    if(message.channel.type == 'dm')
-  return message.reply('dm에서 사용할 수 없는 명령어 입니다.')
-    let img = `${message.author.avatarURL}`
-    let embed = new Discord.RichEmbed()
-    .setTitle(message.author.username+"님의 정보")
-    .setThumbnail(img)
-    .setColor("RANDOM")
-    .addField("전체이름", `${message.author.username}#${message.author.discriminator}`, true)
-    .addField("이름", `${message.author.username}`, true)
-    .addField("태그", `${message.author.discriminator}`, true)
-    .addField("아이디",`${message.author.id}`, true)
-    .addField("프로필링크", `[프로필사진 링크](${message.author.avatarURL})`, true)
-    .addField("계정 만든날짜", `${message.author.createdAt}`)
-    .addField("서버 들어온날짜", `${message.member.joinedAt}`)
-  message.channel.send(embed)
   }
+  // else if(message.content === "!!내정보") {
+  //   if(message.channel.type == 'dm')
+  // return message.reply('dm에서 사용할 수 없는 명령어 입니다.')
+  //   let img = `${message.author.avatarURL}`
+  //   let embed = new Discord.RichEmbed()
+  //   .setTitle(message.author.username+"님의 정보")
+  //   .setThumbnail(img)
+  //   .setColor("RANDOM")
+  //   .addField("전체이름", `${message.author.username}#${message.author.discriminator}`, true)
+  //   .addField("이름", `${message.author.username}`, true)
+  //   .addField("태그", `${message.author.discriminator}`, true)
+  //   .addField("아이디",`${message.author.id}`, true)
+  //   .addField("프로필링크", `[프로필사진 링크](${message.author.avatarURL})`, true)
+  //   .addField("계정 만든날짜", `${message.author.createdAt}`)
+  //   .addField("서버 들어온날짜", `${message.member.joinedAt}`)
+  // message.channel.send(embed)
+  // }
   if(message.content === '!!내정보') {
     if(message.channel.type === 'dm') 
     return message.reply("dm에서 사용할 수 없는 명령어 입니다.") 
-  message.channel.send(`\`\`\`md\n#${message.author.username}\n* 태그: ${message.author.username}#${message.author.discriminator}\n- 생일 ${message.author.createdAt}\n- 서버가입 ${message.member.joinedAt}\n\`\`\``)
+  message.channel.send(`\`\`\`md\n# ${message.author.username}\n* 태그: ${message.author.username}#${message.author.discriminator}\n- 생일 ${message.author.createdAt}\n- 서버가입 ${message.member.joinedAt}\n\`\`\``)
   }
 
   if(message.content === "!!리스트") {
