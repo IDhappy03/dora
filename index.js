@@ -33,10 +33,10 @@ client.on('message', (message) => {
   //기본 명령어
   if(message.author.bot) return;
 
-if(message.content === `핑`) {
+if(message.content === `!!핑`) {
   if(message.channel.type == 'dm') 
   return message.reply(`\`dm\`에서 사용할 수 없는 명령어 입니다.`)
-  message.channel.send(`${client.ws.ping}`)
+  message.channel.send(`${message.ws.ping}`)
 }
   if(message.content == "!!봇") {
     if(message.channel.type == 'dm')
