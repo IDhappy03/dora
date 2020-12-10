@@ -36,7 +36,7 @@ client.on('message', (message) => {
   if (message.content ===  `!!핑`) {
     if(message.channel.type == 'dm')
     return message.reply('\`dm\`에서 사용할 수 없는 명령어 입니다.')
-    message.channel.send(`${client.ping}`)
+    message.channel.send(`🏓\n\`\`\`fix\n${client.ping}ms\n\`\`\``)
   } 
   if(message.content == "!!봇") {
     if(message.channel.type == 'dm')
