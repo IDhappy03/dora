@@ -102,7 +102,7 @@ client.on('message', (message) => {
           .setColor("BLUE")
           .setURL(`https://hangang.life/`)
           .setDescription(`\n한강 온도 : \`${json["temp"]}˚C\`\n체크 시간 : \`${json["time"]}\``)
-            message.channel.send({embed:embed})
+            message.channel.send(embed)
         } else { message.channel.send("API에 연결할 수 없음")
     }
     })
