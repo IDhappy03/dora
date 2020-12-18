@@ -36,7 +36,7 @@ client.on('message', (message) => {
   if (message.content ===  `!!핑`) {
     if(message.channel.type == 'dm')
     return message.reply('\`dm\`에서 사용할 수 없는 명령어 입니다.')
-    message.channel.send(`\`\`\`fix\n🏓 ${client.ping}ms\n\`\`\``)
+    message.channel.send(`\`\`\`fix\n🏓 ${client.ws.ping}ms\n\`\`\``)
   } 
   if(message.content == "!!봇") {
     if(message.channel.type == 'dm')
@@ -67,7 +67,7 @@ client.on('message', (message) => {
   if (message.content === "!!아바타") {
     if(message.channel.type == 'dm')
   return message.reply('\`dm\`에서 사용할 수 없는 명령어 입니다.')
-    message.channel.send(`${message.author.displayAvatarURL}`);
+    message.channel.send(`${`https://cdn.discordapp.com/avatars/${message.author.id}/${message.author.avatar}.png?size=256`}`);
     
   }
   // else if(message.content === "!!내정보") {
@@ -97,12 +97,12 @@ client.on('message', (message) => {
         
     fetch('http://hangang.dkserver.wo.tc/').then(res => res.json()).then(json => {
         if(json.result) {
-          let embed = new Discord.RichEmbed()
+          let embed = new Discord.MessageEmbed()
           .setTitle('한강온도')
           .setColor("BLUE")
           .setURL(`https://hangang.life/`)
           .setDescription(`\n한강 온도 : \`${json["temp"]}˚C\`\n체크 시간 : \`${json["time"]}\``)
-            message.channel.send(embed)
+            message.channel.send({embed:embed})
         } else { message.channel.send("API에 연결할 수 없음")
     }
     })
@@ -112,22 +112,21 @@ client.on('message', (message) => {
     if(message.channel.type == 'dm')
   return message.reply('\`dm\`에서 사용할 수 없는 명령어 입니다.')
     if(message.author.id === "432038330264190977") {
-        let embed = new Discord.RichEmbed()
+        let embed = new Discord.MessageEmbed()
         .setColor("RANDOM")
-        let arr = client.guilds.array();
-        let list = '';
-        list = `\`\`\`css\n`;
+        let arr = client.guilds.cache.array()
+        let list = ""
+        list = `\`\`\`css\n`
     
-        for(let i=0;i<arr.length;i++) {
+        for (let i = 0; i < arr.length; i++) {
           // list += `${arr[i].name} - ${arr[i].id}\n`
           list += `${arr[i].name}\n`
         }
         list += `\`\`\`\n`
-        embed.addField('list:',        `${list}`);
-        
-        
+        embed.addField("list:", `${list}`)
+    
         embed.setTimestamp()
-        message.channel.send(embed);
+        message.channel.send(embed)
     } else
       message.channel.send(`**__${message.author.username}__**넌 안됨 ㅅㄱ`)
     }
@@ -1549,40 +1548,36 @@ client.on('message', (message) => {
     message.channel.send(`${arr[index]} (이)라는 도구가 나왔어.`)
   }
   //봇 정보
-  if(message.content == "!!si") {
-    if(message.channel.type == 'dm')
-  return message.reply('\`dm\`에서 사용할 수 없는 명령어 입니다.')
-    let embed = new Discord.RichEmbed()
-    let img = 'https://cdn.discordapp.com/attachments/747789641826172948/750699703758225448/744af0d16a6eddc1.jpg';
-    var duration = moment.duration(client.uptime).format(" D [일], H [시간], m [분], s [초]");
-    embed.setColor('#186de6')
-    embed.setAuthor('도라에몽의 서버 정보', img)
+
+  if (message.content == "!!si") {
+    let embed = new Discord.MessageEmbed()
+    let img = "https://cdn.discordapp.com/attachments/747789641826172948/750699703758225448/744af0d16a6eddc1.jpg"
+    var duration = moment.duration(client.uptime).format(" D [일], H [시간], m [분], s [초]")
+    embed.setColor("#186de6")
+    embed.setAuthor("도라에몽의 서버 정보", img)
     embed.setFooter(`도라에몽 BOT ❤️`)
-    embed.addBlankField()
-    embed.addField('RAM usage',    `${(process.memoryUsage().heapUsed / 1024 / 1024).toFixed(2)} MB`, true);
-    embed.addField('uptime', `${duration}`, true);
-    embed.addField('user',         `${client.users.size.toLocaleString()}`, true);
-    embed.addField('server',       `${client.guilds.size.toLocaleString()}`, true);
-    embed.addField('ping',          client.ping + 'ms', true);
-    embed.addField('message',      `${client.user.username}`, true);
-    embed.addField('channel',      `${client.channels.size.toLocaleString()}`, true);
-    embed.addField('Discord.js',   `v${Discord.version}`, true);
-    embed.addField('Node',         `${process.version}`, true);
-    
+    embed.addField("RAM usage", `${(process.memoryUsage().heapUsed / 1024 / 1024).toFixed(2)} MB`, true)
+    embed.addField("running time", `${duration}`, true)
+    embed.addField("user", `${client.users.cache.size}`, true)
+    embed.addField("server", `${client.guilds.cache.size}`, true)
+    // embed.addField('channel',      `${client.channels.cache.size.toLocaleString()}`, true)
+    embed.addField("Discord.js", `v${Discord.version}`, true)
+    embed.addField("Node", `${process.version}`, true)
+
     embed.setTimestamp()
-    message.channel.send(embed);
+    message.channel.send(embed)
   }
 
 
 if(message.content == "!!봇 가동시간") {
   if(message.channel.type == 'dm')
   return message.reply('\`dm\`에서 사용할 수 없는 명령어 입니다.')
-  let embed = new Discord.RichEmbed()
+  let embed = new Discord.MessageEmbed()
   var duration = moment.duration(client.uptime).format("D [일]  H [시간]  m [분]  s [초]");
   embed.addField('`가동시간`', `${duration}`, true);
 
   embed.setTimestamp()
-  message.channel.send(embed);
+  message.channel.send({embed:embed});
 }
 
 
@@ -1636,7 +1631,7 @@ client.on('message', (message) => {
       {name: '4반 시간표', desc: '4반의 시간표를 알려준다'},
     ];
     let commandStr = '';
-    let embed = new Discord.RichEmbed()
+    let embed = new Discord.MessageEmbed()
       .setAuthor('4반 시간표', helpImg)
       .setColor('#186de6')
       .setFooter(``)
@@ -1649,7 +1644,7 @@ client.on('message', (message) => {
 
     embed.addField('시간표', commandStr);
 
-    message.channel.send(embed)
+    message.channel.send({embed:embed})
   }
   else if(message.content == "!!12반") {
     if(message.channel.type == 'dm')
@@ -1659,7 +1654,7 @@ client.on('message', (message) => {
       {name: '12반 시간표', desc: '12반의 시간표를 알려준다'},
     ];
     let commandStr = '';
-    let embed = new Discord.RichEmbed()
+    let embed = new Discord.MessageEmbed()
       .setAuthor('12반 시간표', helpImg)
       .setColor('#186de6')
       .setFooter(``)
@@ -1672,17 +1667,17 @@ client.on('message', (message) => {
 
     embed.addField('시간표', commandStr);
 
-    message.channel.send(embed)
+    message.channel.send({embed:embed})
   }
 
 //초대코드
 if(message.content === `!!초대코드`) {
-  let embed = new Discord.RichEmbed()
+  let embed = new Discord.MessageEmbed()
 
   .setColor("RANDOM")
   .addField('저를 초대해주시겠다니 감사해요! \`\`초대주소\`\` 를 사용하여 초대 가능해요!', `[초대 주소](https://discord.com/api/oauth2/authorize?client_id=742635886998454293&permissions=8&scope=bot)`, true)
   
-  message.channel.send(embed)
+  message.channel.send({embed:embed})
 }
  //명령어 목록
 //  else if(message.content == "!!명령어") {
@@ -1715,7 +1710,7 @@ if(message.content === `!!초대코드`) {
 //   }
   if(message.content === '!!명령어') {
     let img = 'https://cdn.discordapp.com/avatars/742635886998454293/0dd4ce22d10ee22c010624d28990e1e3.png?size=128';
-    let embed = new Discord.RichEmbed()
+    let embed = new Discord.MessageEmbed()
     
     .setTitle('도라에몽 명령어')
     .setColor("RANDOM")
@@ -1725,7 +1720,7 @@ if(message.content === `!!초대코드`) {
     .addField(`놀이`, `\`\`!!그리기\`\`,\`\`!!비밀도구\`\`,\`\`!!주사위\`\`,\`\`!!qlalfehrn\`\`,\`\`!!인증번호\`\`,\`!!돈받기\``)
     .addField(`봇 정보`, `\`\`!!si\`\`,\`\`!!제작자\`\`,\`\`!!리스트\`\``)
   
-    message.channel.send(embed)
+    message.channel.send({embed:embed})
   }
 
   if(message.content === '!!돈받기') {
@@ -1735,4 +1730,4 @@ if(message.content === `!!초대코드`) {
 });
 
 
-client.login(token);742635886998454293
+client.login(token);
