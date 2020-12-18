@@ -92,21 +92,21 @@ client.on('message', (message) => {
     return message.reply("\`dm\`에서 사용할 수 없는 명령어 입니다.") 
   message.channel.send(`\`\`\`md\n# ${message.author.username}\n* 태그: ${message.author.username}#${message.author.discriminator}\n- 아이디: ${message.author.id}\n- 생일 ${message.author.createdAt}\n- 서버가입 ${message.member.joinedAt}\n\`\`\``)
   }
-  if(message.content === `!!한강`) {
-    const fetch = require('node-fetch')
+  // if(message.content === `!!한강`) {
+  //   const fetch = require('node-fetch')
         
-    fetch('http://hangang.dkserver.wo.tc/').then(res => res.json()).then(json => {
-        if(json.result) {
-          let embed = new Discord.RichEmbed()
-          .setTitle('한강온도')
-          .setColor("BLUE")
-          .setURL(`https://hangang.life/`)
-          .setDescription(`\n한강 온도 : \`${json["temp"]}˚C\`\n체크 시간 : \`${json["time"]}\``)
-            message.channel.send(embed)
-        } else { message.channel.send("API에 연결할 수 없음")
-    }
-    })
-  } 
+  //   fetch('http://hangang.dkserver.wo.tc/').then(res => res.json()).then(json => {
+  //       if(json.result) {
+  //         let embed = new Discord.RichEmbed()
+  //         .setTitle('한강온도')
+  //         .setColor("BLUE")
+  //         .setURL(`https://hangang.life/`)
+  //         .setDescription(`\n한강 온도 : \`${json["temp"]}˚C\`\n체크 시간 : \`${json["time"]}\``)
+  //           message.channel.send(embed)
+  //       } else { message.channel.send("API에 연결할 수 없음")
+  //   }
+  //   })
+  // } 
 
   if(message.content === "!!리스트") {
     if(message.channel.type == 'dm')
