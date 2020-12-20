@@ -64,11 +64,16 @@ client.on('message', (message) => {
   return message.reply('\`dm\`에서 사용할 수 없는 명령어 입니다.')
     message.channel.send('https://www.youtube.com/watch?v=2SojPurh_rM')
   }
-  if (message.content === "!!아바타") {
+  if(message.content === '!!아바타') {
     if(message.channel.type == 'dm')
-  return message.reply('\`dm\`에서 사용할 수 없는 명령어 입니다.')
-    message.channel.send(`${`https://cdn.discordapp.com/avatars/${message.author.id}/${message.author.avatar}.png?size=256`}`);
-    
+    return message.reply(`\`dm\`에서 사용할 수 없는 명령어입니다.`)
+    let embed = new Discord.MessageEmbed()
+
+    .setTitle(`**${message.author.username}** 님의 아바타`)
+    .setColor(`#A9F5F2`)
+    .setImage(`https://cdn.discordapp.com/avatars/${message.author.id}/${message.author.avatar}.png?size=128`)
+
+    message.channel.send({embed:embed})
   }
   // else if(message.content === "!!내정보") {
   //   if(message.channel.type == 'dm')
