@@ -103,10 +103,10 @@ client.on('message', (message) => {
     fetch('http://hangang.dkserver.wo.tc/').then(res => res.json()).then(json => {
         if(json.result) {
           let embed = new Discord.MessageEmbed()
-          .setTitle('한강온도')
+          .setTitle('한강 수온')
           .setColor("BLUE")
           .setURL(`https://hangang.life/`)
-          .setDescription(`\n한강 온도 : \`${json["temp"]}˚C\`\n체크 시간 : \`${json["time"]}\``)
+          .setDescription(`\n한강 수온 : \`${json["temp"]}˚C\`\n체크 시간 : \`${json["time"]}\``)
             message.channel.send({embed:embed})
         } else { message.channel.send("API에 연결할 수 없음")
     }
