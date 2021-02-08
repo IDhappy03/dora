@@ -1623,8 +1623,9 @@ if(message.content === `!!코로나`) {
   
   })
 }
-
-
+//쉐키
+if(message.content === `<@432038330264190977>`)
+  message.reply("태그 조금만 줄여주세요!")
 });
 
 function changeCommandStringLength(str, limitLen = 8) {
