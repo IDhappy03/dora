@@ -1776,10 +1776,6 @@ if(message.content === `!!초대코드`) {
     message.channel.send(`||@everyone||\n\`\`농협 356-1430-6858-93 \`\`여기로 매달 \`7,721\` 원을 후원 해주세요.`)
   }
 
-  //도현이 사진 막기
-  if(message.content === "https://cdn.discordapp.com/attachments/791917705023586304/814833298491572224/20201022_125253-1.jpg") {
-    message.channel.send(`👁️👃👁️\n🖕👄🖕\n||<@${message.author.id}>||`)
-  }
 
 //코로나
 
