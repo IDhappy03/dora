@@ -1552,7 +1552,7 @@ client.on('message', (message) => {
     let index = parseInt(Math.random() * (max - min) + min);
     message.channel.send(`${arr[index]} (이)라는 도구가 나왔어.`)
   }
-  //봇 정보
+  //봇 정보 | 서버정보
 
   if (message.content == "!!si") {
     let embed = new Discord.MessageEmbed()
@@ -1572,6 +1572,52 @@ client.on('message', (message) => {
     embed.setTimestamp()
     message.channel.send(embed)
   }
+
+  if(message.content === '!!서버정보') {
+    const roles = message.guild.roles.cache.sort((a, b) => b.position - a.position).map(role => role.toString());
+		const members = message.guild.members.cache;
+		const channels = message.guild.channels.cache;
+		const emojis = message.guild.emojis.cache;
+
+		const embed = new Discord.MessageEmbed()
+			.setDescription(`**__${message.guild.name}__ 서버정보**`)
+			.setColor("1E90FF")
+			.setThumbnail(message.guild.iconURL({ dynamic: true }))
+			.addField('정보', [
+				`**❯ 이름:** ${message.guild.name}`,
+				`**❯ 아이디:** ${message.guild.id}`,
+				`**❯ 관리자:** ${message.guild.owner.user.tag} (${message.guild.ownerID})`,
+				`**❯ 지역:** ${message.guild.region}`,
+				`**❯ 부스터 티어:** ${message.guild.premiumTier ? `Tier ${message.guild.premiumTier}` : 'None'}`,
+				`**❯ 필터:** ${filterLevels[message.guild.explicitContentFilter]}`,
+				`**❯ 보안 레벨:** ${verificationLevels[message.guild.verificationLevel]}`,
+				`**❯ 생성일:** ${moment(message.guild.createdTimestamp).locale('ko').format('ll dddd LTS')} , ${moment(message.guild.createdTimestamp).locale('ko').fromNow()}`,
+				'\u200b'
+			])
+			.addField('통계', [
+				`**❯ 역할 수:** ${roles.length}`,
+				`**❯ 이모지 수:** ${emojis.size}`,
+				`**❯ 일반 이모지 수:** ${emojis.filter(emoji => !emoji.animated).size}`,
+				`**❯ 애니매이션 이모지 수:** ${emojis.filter(emoji => emoji.animated).size}`,
+				`**❯ 총 맴버 수:** ${message.guild.memberCount}`,
+				`**❯ 유저 수:** ${members.filter(member => !member.user.bot).size}`,
+				`**❯ 봇 수:** ${members.filter(member => member.user.bot).size}`,
+				`**❯ 채팅 채널 수:** ${channels.filter(channel => channel.type === 'text').size}`,
+				`**❯ 음성 채널 수:** ${channels.filter(channel => channel.type === 'voice').size}`,
+				`**❯ 부스트 수:** ${message.guild.premiumSubscriptionCount || '0'}`,
+				'\u200b'
+			])
+			.addField('상태', [
+				`**❯ 온라인:** ${members.filter(member => member.presence.status === 'online').size}`,
+				`**❯ 자리비움:** ${members.filter(member => member.presence.status === 'idle').size}`,
+				`**❯ 다른 용무 중:** ${members.filter(member => member.presence.status === 'dnd').size}`,
+				`**❯ 오프라인:** ${members.filter(member => member.presence.status === 'offline').size}`,
+				'\u200b'
+			])
+			.addField(`역할 [${roles.length - 1}]`, roles.join(', '))
+			.setTimestamp();
+		message.channel.send(embed);
+	}
 
 
 if(message.content == "!!봇 가동시간") {
