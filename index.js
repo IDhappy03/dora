@@ -1572,7 +1572,7 @@ client.on('message', (message) => {
     message.channel.send(embed)
   }
 
-  if(message.content === '서버정보') {
+  if(message.content === '!!서버정보') {
     const roles = message.guild.roles.cache.sort((a, b) => b.position - a.position).map(role => role.toString());
 		const members = message.guild.members.cache;
 		const channels = message.guild.channels.cache;
