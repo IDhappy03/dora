@@ -1572,7 +1572,7 @@ client.on('message', (message) => {
     message.channel.send(embed)
   }
 
-  if(message.content === '!!서버정보') {
+  if(message.content === '서버정보') {
     const roles = message.guild.roles.cache.sort((a, b) => b.position - a.position).map(role => role.toString());
 		const members = message.guild.members.cache;
 		const channels = message.guild.channels.cache;
@@ -1764,7 +1764,7 @@ if(message.content === `!!초대코드`) {
     .setTitle('도라에몽 명령어')
     .setColor("RANDOM")
     .setTimestamp()
-    .addField('명령어' , `\`\`!!명령어\`\`,\`\`!!핑\`\`,\`\`!!초대코드\`\`,\`\`!!그리기\`\`,\`\`!!비밀도구\`\`,\`\`!!주사위\`\`,\`\`!!qlalfehrn\`\`,\n\`\`!!인증번호\`\`,\`!!돈받기\`,\`!!코로나\`,\`!!코로나 전체\``)
+    .addField('명령어' , `\`\`!!명령어\`\`,\`\`!!핑\`\`,\`\`!!초대코드\`\`,\`\`!!그리기\`\`,\`\`!!비밀도구\`\`,\`\`!!주사위\`\`,\`\`!!qlalfehrn\`\`,\n\`\`!!인증번호\`\`,\`!!돈받기\`,\`!!코로나\`,\`!!코로나 전체\`,\`서버정보\``)
     .addField(`정보` , `\`\`!!아바타\`\`,\`\`!!제작자\`\`,\`\`!!내정보\`\``)
     .addField(`봇 정보`, `\`\`!!si\`\`,\`\`!!제작자\`\`,\`\`!!리스트\`\``)
   
