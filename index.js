@@ -1677,7 +1677,7 @@ client.on('message', (message) => {
   return message.reply('dm에서 사용할 수 없는 명령어 입니다.')
     let helpImg = '';
     let commandList = [
-      {name: '덕영고 3학년 4반 시간표', desc: '덕영고 3학년 4반 시간표를 알려준다'},
+      {name: '덕영고 3학년 4반 시간표', desc: '\n덕영고 3학년 4반 시간표를 알려준다'},
     ];
     let commandStr = '';
     let embed = new Discord.MessageEmbed()
@@ -1700,7 +1700,7 @@ client.on('message', (message) => {
   return message.reply('dm에서 사용할 수 없는 명령어 입니다.')
     let helpImg = '';
     let commandList = [
-      {name: '고림고 3학년 3반 시간표', desc: '고림고 3학년 3반 시간표를 알려준다'},
+      {name: '고림고 3학년 3반 시간표', desc: '\n고림고 3학년 3반 시간표를 알려준다'},
     ];
     let commandStr = '';
     let embed = new Discord.MessageEmbed()
@@ -1724,7 +1724,7 @@ client.on('message', (message) => {
   return message.reply('dm에서 사용할 수 없는 명령어 입니다.')
     let helpImg = '';
     let commandList = [
-      {name: '덕영고 3학년 3반 시간표', desc: '덕영고 3학년 3반 시간표를 알려준다'},
+      {name: '덕영고 3학년 3반 시간표', desc: '\n덕영고 3학년 3반 시간표를 알려준다'},
     ];
     let commandStr = '';
     let embed = new Discord.MessageEmbed()
@@ -1747,7 +1747,7 @@ client.on('message', (message) => {
   return message.reply('dm에서 사용할 수 없는 명령어 입니다.')
     let helpImg = '';
     let commandList = [
-      {name: '고림고 3학년 8반 시간표', desc: '고림고 3학년 8반 시간표를 알려준다'},
+      {name: '고림고 3학년 8반 시간표', desc: '\n고림고 3학년 8반 시간표를 알려준다'},
     ];
     let commandStr = '';
     let embed = new Discord.MessageEmbed()
