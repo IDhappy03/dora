@@ -1695,19 +1695,19 @@ client.on('message', (message) => {
 
     message.channel.send({embed:embed})
   }
-  else if(message.content == "!!12반") {
+  else if(message.content == "!!고림3반") {
     if(message.channel.type == 'dm')
   return message.reply('dm에서 사용할 수 없는 명령어 입니다.')
     let helpImg = '';
     let commandList = [
-      {name: '12반 시간표', desc: '12반의 시간표를 알려준다'},
+      {name: '고림고 3반 시간표', desc: '고림고 3반의 시간표를 알려준다'},
     ];
     let commandStr = '';
     let embed = new Discord.MessageEmbed()
-      .setAuthor('12반 시간표', helpImg)
+      .setAuthor('고림고 3반 시간표', helpImg)
       .setColor('#186de6')
       .setFooter(``)
-      .setImage(`https://cdn.discordapp.com/attachments/782810149433114654/786048783770320936/unknown.png`)
+      .setImage(`https://cdn.discordapp.com/attachments/815600618675765269/816978316833325086/unknown.png`)
       .setTimestamp()
     
     commandList.forEach(x => {
@@ -1719,16 +1719,16 @@ client.on('message', (message) => {
     message.channel.send({embed:embed})
   }
 
-  if(message.content == "!!3반") {
+  if(message.content == "!!덕영3반") {
     if(message.channel.type == 'dm')
   return message.reply('dm에서 사용할 수 없는 명령어 입니다.')
     let helpImg = '';
     let commandList = [
-      {name: '3반 시간표', desc: '3반의 시간표를 알려준다'},
+      {name: '덕영고 3반 시간표', desc: '덕영고 3반의 시간표를 알려준다'},
     ];
     let commandStr = '';
     let embed = new Discord.MessageEmbed()
-      .setAuthor('3반 시간표', helpImg)
+      .setAuthor('덕영고 3반 시간표', helpImg)
       .setColor('#186de6')
       .setFooter(``)
       .setImage(`https://cdn.discordapp.com/attachments/478621518180384775/816269497013895178/unknown-3.png`)
