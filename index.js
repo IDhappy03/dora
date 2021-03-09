@@ -1684,7 +1684,7 @@ client.on('message', (message) => {
       .setAuthor('4반 시간표', helpImg)
       .setColor('#186de6')
       .setFooter(``)
-      .setImage(`https://cdn.discordapp.com/attachments/728033874952847455/815913179921645578/unknown.png?size=512`)
+      .setImage(`https://cdn.discordapp.com/attachments/815600618675765269/818799306429431808/1615155164331.png`)
       .setTimestamp()
     
     commandList.forEach(x => {
@@ -1707,7 +1707,7 @@ client.on('message', (message) => {
       .setAuthor('고림고 3반 시간표', helpImg)
       .setColor('#186de6')
       .setFooter(``)
-      .setImage(`https://cdn.discordapp.com/attachments/815600618675765269/816978316833325086/unknown.png?size=512`)
+      .setImage(`https://cdn.discordapp.com/attachments/815600618675765269/818799311437299712/1615282246516.jpg`)
       .setTimestamp()
     
     commandList.forEach(x => {
