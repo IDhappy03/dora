@@ -1,3 +1,7 @@
+//기본적인 코드는 나긋해 님의 유튜브 채널에서 알려주신 코드를 이용하여 만들었습니다.
+//코로나 명령어는 유튜브 나긋해님 디스코드 채널 아이디어 공유방에 waffle#6876님이 올려주신 코드를 사용했습니다. 
+//그 외 나머지 기능은 다른분들이 올려주신 코드를 조금씩 수정을 하여 만들었습니다.
+
 const Discord = require('discord.js');
 const client = new Discord.Client();
 const moment = require("moment");
@@ -42,27 +46,27 @@ client.on('message', (message) => {
   return message.reply('\`dm\`에서 사용할 수 없는 명령어 입니다.')
     message.channel.send('https://dashboard.heroku.com/apps')
   }
-  if(message.content === `🖕`) {
-    if(message.channel.type === 'dm')
-    return message.reply('\`dm\`에서 사용할 수 없는 명령어 입니다.')
-    message.delete()
-    message.channel.send(`👁️👃👁️\n🖕👄🖕\n||<@${message.author.id}>||`)
-  }
-  if(message.content == "!!도움") {
-    if(message.channel.type == 'dm')
-  return message.reply('\`dm\`에서 사용할 수 없는 명령어 입니다.')
-    message.channel.send('https://discordjs.guide/additional-info/changes-in-v12.html#string-concatenation')
-  }
-  if(message.content == "!!출첵") {
-    if(message.channel.type == 'dm')
-  return message.reply('\`dm\`에서 사용할 수 없는 명령어 입니다.')
-    message.reply('될줄알았니?')
-  }
-  if(message.content == "!!그리기") {
-    if(message.channel.type == 'dm')
-  return message.reply('\`dm\`에서 사용할 수 없는 명령어 입니다.')
-    message.channel.send('https://www.youtube.com/watch?v=2SojPurh_rM')
-  }
+  // if(message.content === `🖕`) {
+  //   if(message.channel.type === 'dm')
+  //   return message.reply('\`dm\`에서 사용할 수 없는 명령어 입니다.')
+  //   message.delete()
+  //   message.channel.send(`👁️👃👁️\n🖕👄🖕\n||<@${message.author.id}>||`)
+  // }
+  // if(message.content == "!!도움") {
+  //   if(message.channel.type == 'dm')
+  // return message.reply('\`dm\`에서 사용할 수 없는 명령어 입니다.')
+  //   message.channel.send('https://discordjs.guide/additional-info/changes-in-v12.html#string-concatenation')
+  // }
+  // if(message.content == "!!출첵") {
+  //   if(message.channel.type == 'dm')
+  // return message.reply('\`dm\`에서 사용할 수 없는 명령어 입니다.')
+  //   message.reply('될줄알았니?')
+  // }
+  // if(message.content == "!!그리기") {
+  //   if(message.channel.type == 'dm')
+  // return message.reply('\`dm\`에서 사용할 수 없는 명령어 입니다.')
+  //   message.channel.send('https://www.youtube.com/watch?v=2SojPurh_rM')
+  // }
   if(message.content === '!!아바타') {
     if(message.channel.type == 'dm')
     return message.reply(`\`dm\`에서 사용할 수 없는 명령어입니다.`)
@@ -1655,12 +1659,12 @@ function changeCommandStringLength(str, limitLen = 8) {
 
 client.on('message', (message) => {
   //기본 명령어
-  if(message.author.bot) return;
-  if(message.content == "비밀도구") {
-    if(message.channel.type == 'dm')
-  return message.reply('dm에서 사용할 수 없는 명령어 입니다.')
-    message.channel.send('이건 없음')
-  }
+  // if(message.author.bot) return;
+  // if(message.content == "비밀도구") {
+  //   if(message.channel.type == 'dm')
+  // return message.reply('dm에서 사용할 수 없는 명령어 입니다.')
+  //   message.channel.send('이건 없음')
+  // }
 
   if(message.content.startsWith("!!인증번호")) {
     if(message.channel.type == 'dm')
