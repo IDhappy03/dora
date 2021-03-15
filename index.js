@@ -1,6 +1,7 @@
 //기본적인 코드는 나긋해 님의 유튜브 채널에서 알려주신 코드를 이용하여 만들었습니다.
 //코로나 명령어는 유튜브 나긋해님 디스코드 채널 아이디어 공유방에 waffle#6876님이 올려주신 코드를 사용했습니다. 
 //그 외 나머지 기능은 다른분들이 올려주신 코드를 조금씩 수정을 하여 만들었습니다.
+//아직은 깔끔하게 작성하지는 못했지만 나중에 조금더 코딩을 잘 하게된다면 수정할 예정입니다.
 
 const Discord = require('discord.js');
 const client = new Discord.Client();
@@ -11,24 +12,6 @@ const token = process.env.token;
 client.on('ready', () => {
   console.log(`${client.user.tag} 봇에 로그인 하였습니다!`);
   client.user.setPresence({ game: { name: '문의는 삐삐야#1950' }, status: 'online' })
-
-  let state_list = [
-    '!!명령어를 쳐보세요.',
-  ]
-  let state_list_index = 1;
-  let change_delay = 3000; // 이건 초입니당. 1000이 1초입니당.
-
-  function changeState() {
-    setTimeout(() => {
-      // console.log( '상태 변경 -> ', state_list[state_list_index] );
-      client.user.setPresence({ game: { name: state_list[state_list_index] }, status: 'online' })
-      state_list_index += 1;
-      if(state_list_index >= state_list.length) {
-        state_list_index = 0;
-      }
-      changeState()
-    }, change_delay);
-  }
 
 });
 
@@ -46,27 +29,6 @@ client.on('message', (message) => {
   return message.reply('\`dm\`에서 사용할 수 없는 명령어 입니다.')
     message.channel.send('https://dashboard.heroku.com/apps')
   }
-  // if(message.content === `🖕`) {
-  //   if(message.channel.type === 'dm')
-  //   return message.reply('\`dm\`에서 사용할 수 없는 명령어 입니다.')
-  //   message.delete()
-  //   message.channel.send(`👁️👃👁️\n🖕👄🖕\n||<@${message.author.id}>||`)
-  // }
-  // if(message.content == "!!도움") {
-  //   if(message.channel.type == 'dm')
-  // return message.reply('\`dm\`에서 사용할 수 없는 명령어 입니다.')
-  //   message.channel.send('https://discordjs.guide/additional-info/changes-in-v12.html#string-concatenation')
-  // }
-  // if(message.content == "!!출첵") {
-  //   if(message.channel.type == 'dm')
-  // return message.reply('\`dm\`에서 사용할 수 없는 명령어 입니다.')
-  //   message.reply('될줄알았니?')
-  // }
-  // if(message.content == "!!그리기") {
-  //   if(message.channel.type == 'dm')
-  // return message.reply('\`dm\`에서 사용할 수 없는 명령어 입니다.')
-  //   message.channel.send('https://www.youtube.com/watch?v=2SojPurh_rM')
-  // }
   if(message.content === '!!아바타') {
     if(message.channel.type == 'dm')
     return message.reply(`\`dm\`에서 사용할 수 없는 명령어입니다.`)
@@ -78,23 +40,6 @@ client.on('message', (message) => {
 
     message.channel.send({embed:embed})
   }
-  // else if(message.content === "!!내정보") {
-  //   if(message.channel.type == 'dm')
-  // return message.reply('dm에서 사용할 수 없는 명령어 입니다.')
-  //   let img = `${message.author.avatarURL}`
-  //   let embed = new Discord.RichEmbed()
-  //   .setTitle(message.author.username+"님의 정보")
-  //   .setThumbnail(img)
-  //   .setColor("RANDOM")
-  //   .addField("전체이름", `${message.author.username}#${message.author.discriminator}`, true)
-  //   .addField("이름", `${message.author.username}`, true)
-  //   .addField("태그", `${message.author.discriminator}`, true)
-  //   .addField("아이디",`${message.author.id}`, true)
-  //   .addField("프로필링크", `[프로필사진 링크](${message.author.avatarURL})`, true)
-  //   .addField("계정 만든날짜", `${message.author.createdAt}`)
-  //   .addField("서버 들어온날짜", `${message.member.joinedAt}`)
-  // message.channel.send(embed)
-  // }
   if(message.content === '!!내정보') {
     if(message.channel.type === 'dm') 
     return message.reply("\`dm\`에서 사용할 수 없는 명령어 입니다.") 
@@ -1575,52 +1520,6 @@ client.on('message', (message) => {
     embed.setTimestamp()
     message.channel.send(embed)
   }
-  // 갑자기 작동 안함
-  // if(message.content === '!!서버정보') {
-  //   const roles = message.guild.roles.cache.sort((a, b) => b.position - a.position).map(role => role.toString());
-	// 	const members = message.guild.members.cache;
-	// 	const channels = message.guild.channels.cache;
-	// 	const emojis = message.guild.emojis.cache;
-
-	// 	const embed = new Discord.MessageEmbed()
-	// 		.setDescription(`**__${message.guild.name}__ 서버정보**`)
-	// 		.setColor("1E90FF")
-	// 		.setThumbnail(message.guild.iconURL({ dynamic: true }))
-	// 		.addField('정보', [
-	// 			`**❯ 이름:** ${message.guild.name}`,
-	// 			`**❯ 아이디:** ${message.guild.id}`,
-	// 			`**❯ 관리자:** ${message.guild.owner.user.tag} (${message.guild.ownerID})`,
-	// 			`**❯ 지역:** ${message.guild.region}`,
-	// 			`**❯ 부스터 티어:** ${message.guild.premiumTier ? `Tier ${message.guild.premiumTier}` : 'None'}`,
-	// 			`**❯ 필터:** ${filterLevels[message.guild.explicitContentFilter]}`,
-	// 			`**❯ 보안 레벨:** ${verificationLevels[message.guild.verificationLevel]}`,
-	// 			`**❯ 생성일:** ${moment(message.guild.createdTimestamp).locale('ko').format('ll dddd LTS')} , ${moment(message.guild.createdTimestamp).locale('ko').fromNow()}`,
-	// 			'\u200b'
-	// 		])
-	// 		.addField('통계', [
-	// 			`**❯ 역할 수:** ${roles.length}`,
-	// 			`**❯ 이모지 수:** ${emojis.size}`,
-	// 			`**❯ 일반 이모지 수:** ${emojis.filter(emoji => !emoji.animated).size}`,
-	// 			`**❯ 애니매이션 이모지 수:** ${emojis.filter(emoji => emoji.animated).size}`,
-	// 			`**❯ 총 맴버 수:** ${message.guild.memberCount}`,
-	// 			`**❯ 유저 수:** ${members.filter(member => !member.user.bot).size}`,
-	// 			`**❯ 봇 수:** ${members.filter(member => member.user.bot).size}`,
-	// 			`**❯ 채팅 채널 수:** ${channels.filter(channel => channel.type === 'text').size}`,
-	// 			`**❯ 음성 채널 수:** ${channels.filter(channel => channel.type === 'voice').size}`,
-	// 			`**❯ 부스트 수:** ${message.guild.premiumSubscriptionCount || '0'}`,
-	// 			'\u200b'
-	// 		])
-	// 		.addField('상태', [
-	// 			`**❯ 온라인:** ${members.filter(member => member.presence.status === 'online').size}`,
-	// 			`**❯ 자리비움:** ${members.filter(member => member.presence.status === 'idle').size}`,
-	// 			`**❯ 다른 용무 중:** ${members.filter(member => member.presence.status === 'dnd').size}`,
-	// 			`**❯ 오프라인:** ${members.filter(member => member.presence.status === 'offline').size}`,
-	// 			'\u200b'
-	// 		])
-	// 		.addField(`역할 [${roles.length - 1}]`, roles.join(', '))
-	// 		.setTimestamp();
-	// 	message.channel.send(embed);
-	// }
 
 
 if(message.content == "!!봇 가동시간") {
@@ -1642,8 +1541,6 @@ if(message.content == "!!제작자") {
   message.channel.send(`\`\`\`css\n디스코드 : 삐삐야#1950\`\`\``)
 }
 
-//쉐키
-
 });
 
 function changeCommandStringLength(str, limitLen = 8) {
@@ -1658,13 +1555,7 @@ function changeCommandStringLength(str, limitLen = 8) {
 }
 
 client.on('message', (message) => {
-  //기본 명령어
-  // if(message.author.bot) return;
-  // if(message.content == "비밀도구") {
-  //   if(message.channel.type == 'dm')
-  // return message.reply('dm에서 사용할 수 없는 명령어 입니다.')
-  //   message.channel.send('이건 없음')
-  // }
+//명령어
 
   if(message.content.startsWith("!!인증번호")) {
     if(message.channel.type == 'dm')
@@ -1779,35 +1670,6 @@ if(message.content === `!!초대코드`) {
   
   message.channel.send({embed:embed})
 }
- //명령어 목록
-//  else if(message.content == "!!명령어") {
-//   if(message.channel.type == 'dm')
-//   return message.reply('dm에서 사용할 수 없는 명령어 입니다.')
-//     let helpImg = '';
-//     let commandList = [
-//       {name: '!!명령어'   ,   desc: '사용가능한 명령어가 나온다'},
-//       {name: '!!비밀도구' ,   desc: '도라에몽의 비밀도구가 랜덤으로 나온다'},
-//       {name: '!!주사위'   ,   desc: '1~6사이의 숫자가 랜덤으로 나온다.'},
-//       {name: '!!초대코드' ,   desc: '도라에몽을 초대할 수 있는 코드가 나온다'},
-//       {name: '!!아바타'   ,   desc: '자신의 프로필이 나온다.'},
-//       {name: '!!제작자'   ,   desc: '도라에몽 제작자가 나온다'},
-//       {name: '!!핑'       ,   desc: 'pong'}
-//     ];
-//     let commandStr = '';
-//     let embed = new Discord.RichEmbed()
-//       .setAuthor('도라에몽 명령어', helpImg)
-//       .setColor('#186de6')
-//       .setFooter(`도라에몽 BOT ❤️`)
-//       .setTimestamp()
-    
-//     commandList.forEach(x => {
-//       commandStr += `• \`\`${changeCommandStringLength(`${x.name}`)}\`\` : **${x.desc}**\n`;
-//     });
-
-//     embed.addField('명령어: ', commandStr);
-
-//     message.channel.send(embed)
-//   }
   if(message.content === '!!명령어') {
     let img = 'https://cdn.discordapp.com/avatars/742635886998454293/0dd4ce22d10ee22c010624d28990e1e3.png?size=128';
     let embed = new Discord.MessageEmbed()
@@ -2109,3 +1971,130 @@ if(message.content === "!!코로나 전체") {
 
 
 client.login(token);
+
+
+//사용 안하는 코드들
+  // if(message.content === `🖕`) {
+  //   if(message.channel.type === 'dm')
+  //   return message.reply('\`dm\`에서 사용할 수 없는 명령어 입니다.')
+  //   message.delete()
+  //   message.channel.send(`👁️👃👁️\n🖕👄🖕\n||<@${message.author.id}>||`)
+  // }
+  // if(message.content == "!!도움") {
+  //   if(message.channel.type == 'dm')
+  // return message.reply('\`dm\`에서 사용할 수 없는 명령어 입니다.')
+  //   message.channel.send('https://discordjs.guide/additional-info/changes-in-v12.html#string-concatenation')
+  // }
+  // if(message.content == "!!출첵") {
+  //   if(message.channel.type == 'dm')
+  // return message.reply('\`dm\`에서 사용할 수 없는 명령어 입니다.')
+  //   message.reply('될줄알았니?')
+  // }
+  // if(message.content == "!!그리기") {
+  //   if(message.channel.type == 'dm')
+  // return message.reply('\`dm\`에서 사용할 수 없는 명령어 입니다.')
+  //   message.channel.send('https://www.youtube.com/watch?v=2SojPurh_rM')
+  // }
+
+ // 현재 명령어 사용 전에 썻던 명령어
+//  else if(message.content == "!!명령어") {
+//   if(message.channel.type == 'dm')
+//   return message.reply('dm에서 사용할 수 없는 명령어 입니다.')
+//     let helpImg = '';
+//     let commandList = [
+//       {name: '!!명령어'   ,   desc: '사용가능한 명령어가 나온다'},
+//       {name: '!!비밀도구' ,   desc: '도라에몽의 비밀도구가 랜덤으로 나온다'},
+//       {name: '!!주사위'   ,   desc: '1~6사이의 숫자가 랜덤으로 나온다.'},
+//       {name: '!!초대코드' ,   desc: '도라에몽을 초대할 수 있는 코드가 나온다'},
+//       {name: '!!아바타'   ,   desc: '자신의 프로필이 나온다.'},
+//       {name: '!!제작자'   ,   desc: '도라에몽 제작자가 나온다'},
+//       {name: '!!핑'       ,   desc: 'pong'}
+//     ];
+//     let commandStr = '';
+//     let embed = new Discord.RichEmbed()
+//       .setAuthor('도라에몽 명령어', helpImg)
+//       .setColor('#186de6')
+//       .setFooter(`도라에몽 BOT ❤️`)
+//       .setTimestamp()
+    
+//     commandList.forEach(x => {
+//       commandStr += `• \`\`${changeCommandStringLength(`${x.name}`)}\`\` : **${x.desc}**\n`;
+//     });
+
+//     embed.addField('명령어: ', commandStr);
+
+//     message.channel.send(embed)
+//   }
+
+  // if(message.author.bot) return;
+  // if(message.content == "비밀도구") {
+  //   if(message.channel.type == 'dm')
+  // return message.reply('dm에서 사용할 수 없는 명령어 입니다.')
+  //   message.channel.send('이건 없음')
+  // }
+
+    // 갑자기 작동 안함
+  // if(message.content === '!!서버정보') {
+  //   const roles = message.guild.roles.cache.sort((a, b) => b.position - a.position).map(role => role.toString());
+	// 	const members = message.guild.members.cache;
+	// 	const channels = message.guild.channels.cache;
+	// 	const emojis = message.guild.emojis.cache;
+
+	// 	const embed = new Discord.MessageEmbed()
+	// 		.setDescription(`**__${message.guild.name}__ 서버정보**`)
+	// 		.setColor("1E90FF")
+	// 		.setThumbnail(message.guild.iconURL({ dynamic: true }))
+	// 		.addField('정보', [
+	// 			`**❯ 이름:** ${message.guild.name}`,
+	// 			`**❯ 아이디:** ${message.guild.id}`,
+	// 			`**❯ 관리자:** ${message.guild.owner.user.tag} (${message.guild.ownerID})`,
+	// 			`**❯ 지역:** ${message.guild.region}`,
+	// 			`**❯ 부스터 티어:** ${message.guild.premiumTier ? `Tier ${message.guild.premiumTier}` : 'None'}`,
+	// 			`**❯ 필터:** ${filterLevels[message.guild.explicitContentFilter]}`,
+	// 			`**❯ 보안 레벨:** ${verificationLevels[message.guild.verificationLevel]}`,
+	// 			`**❯ 생성일:** ${moment(message.guild.createdTimestamp).locale('ko').format('ll dddd LTS')} , ${moment(message.guild.createdTimestamp).locale('ko').fromNow()}`,
+	// 			'\u200b'
+	// 		])
+	// 		.addField('통계', [
+	// 			`**❯ 역할 수:** ${roles.length}`,
+	// 			`**❯ 이모지 수:** ${emojis.size}`,
+	// 			`**❯ 일반 이모지 수:** ${emojis.filter(emoji => !emoji.animated).size}`,
+	// 			`**❯ 애니매이션 이모지 수:** ${emojis.filter(emoji => emoji.animated).size}`,
+	// 			`**❯ 총 맴버 수:** ${message.guild.memberCount}`,
+	// 			`**❯ 유저 수:** ${members.filter(member => !member.user.bot).size}`,
+	// 			`**❯ 봇 수:** ${members.filter(member => member.user.bot).size}`,
+	// 			`**❯ 채팅 채널 수:** ${channels.filter(channel => channel.type === 'text').size}`,
+	// 			`**❯ 음성 채널 수:** ${channels.filter(channel => channel.type === 'voice').size}`,
+	// 			`**❯ 부스트 수:** ${message.guild.premiumSubscriptionCount || '0'}`,
+	// 			'\u200b'
+	// 		])
+	// 		.addField('상태', [
+	// 			`**❯ 온라인:** ${members.filter(member => member.presence.status === 'online').size}`,
+	// 			`**❯ 자리비움:** ${members.filter(member => member.presence.status === 'idle').size}`,
+	// 			`**❯ 다른 용무 중:** ${members.filter(member => member.presence.status === 'dnd').size}`,
+	// 			`**❯ 오프라인:** ${members.filter(member => member.presence.status === 'offline').size}`,
+	// 			'\u200b'
+	// 		])
+	// 		.addField(`역할 [${roles.length - 1}]`, roles.join(', '))
+	// 		.setTimestamp();
+	// 	message.channel.send(embed);
+	// }
+
+  //현재 내정보를 사용하기 전에 사용하던 명령어
+    // else if(message.content === "!!내정보") {
+  //   if(message.channel.type == 'dm')
+  // return message.reply('dm에서 사용할 수 없는 명령어 입니다.')
+  //   let img = `${message.author.avatarURL}`
+  //   let embed = new Discord.RichEmbed()
+  //   .setTitle(message.author.username+"님의 정보")
+  //   .setThumbnail(img)
+  //   .setColor("RANDOM")
+  //   .addField("전체이름", `${message.author.username}#${message.author.discriminator}`, true)
+  //   .addField("이름", `${message.author.username}`, true)
+  //   .addField("태그", `${message.author.discriminator}`, true)
+  //   .addField("아이디",`${message.author.id}`, true)
+  //   .addField("프로필링크", `[프로필사진 링크](${message.author.avatarURL})`, true)
+  //   .addField("계정 만든날짜", `${message.author.createdAt}`)
+  //   .addField("서버 들어온날짜", `${message.member.joinedAt}`)
+  // message.channel.send(embed)
+  // }
