@@ -1687,27 +1687,7 @@ if(message.content === `!!초대코드`) {
   if(message.content === '!!돈받기') {
     message.channel.send(`||@everyone||\n\`\`농협 356-1430-6858-93 \`\`여기로 매달 \`7,721\` 원을 후원 해주세요.`)
   }
-//일반 채팅방에서 강화 금지
-client.on('message', (message) => {
-  let blacklisted = ["!강화"] //["단어1", "단어2"]
 
-    const channel = client.channels.cache.get('827015137764048927');
-      let foundInText = false;
-      for (var i in blacklisted) { 
-        if (message.content.toLowerCase().includes(blacklisted[i].toLowerCase())) foundInText = true
-      }
-      
-      
-      if (foundInText) {
-          const user = message.author.id;
-          const embed = new Discord.MessageEmbed()
-          .setColor('RED')
-          .setTitle('**❌강화 멈춰‼️**')
-          .setDescription(`<@${user}>강화는 <#827866535754072074> 에 가서 해주세요.`)
-          message.delete();
-          channel.send(embed)
-      };
-});
 
 //코로나
 
