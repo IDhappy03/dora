@@ -16,26 +16,26 @@ client.on('ready', () => {
 
 });
 
-const convertImoticon = (who) => {
-  if(who === "가위"){
-    return "✌️"
-  }
-  else if(who === "보") {
-    return "✋"
-  }
-  else if(who === "바위") {
-    return "✊"
-  }
-  else if(who === "rkdnl") {
-    return "✌️"
-  }
-  else if(who === "qkdnl") {
-    return "✊"
-  }
-  else if(who === "qh") {
-    return "✋"
-  }
-}
+// const convertImoticon = (who) => {
+//   if(who === "가위"){
+//     return "✌️"
+//   }
+//   else if(who === "보") {
+//     return "✋"
+//   }
+//   else if(who === "바위") {
+//     return "✊"
+//   }
+//   else if(who === "rkdnl") {
+//     return "✌️"
+//   }
+//   else if(who === "qkdnl") {
+//     return "✊"
+//   }
+//   else if(who === "qh") {
+//     return "✋"
+//   }
+// }
 
 client.on('message', (message) => {
   if(message.author.bot) return;
