@@ -65,7 +65,45 @@ client.on('message', (message) => {
           date,
           money : user.money + howMuch,
         }
-      }
+      }        const id = message.author.id;
+        const name = message.author.username;
+        const filePath = `./data/${id}.json`;
+        !fs.existsSync(filePath) ? fs.writeFileSync(filePath, JSON.stringify({})) : null;
+        const user = JSON.parse(fs.readFileSync(filePath, "utf-8"));
+        const today = new Date();
+        const date = "" + today.getFullYear() + today.getMonth() + today.getDate();
+
+        const howMuch = 5000;
+
+        if(message.content === '돈받기') {
+          let saveUser = {};
+          if(user.id) {
+            if(user.date === date) {
+              message.reply(`오늘은 이미 받았잖아? 내일 받아!`)
+              saveUser = user;
+            }
+            else {
+              message.reply(`\`${howMuch}원\`이 지급되었습니다.\n${name}의 현재 잔액은 \`${user.money}원\` -> \`${user.money + howMuch}원\`이 되었습니다`)
+              saveUser = {
+                id,
+                name,
+                date,
+                money : user.money + howMuch,
+              }
+            }
+          }
+          else {
+            message.reply(`${name}!! 시작하는걸 환영해! \`${howMuch}원\`이 지급됐어!`)
+            saveUser = {id, name, date, money : howMuch}
+          }
+
+          fs.writeFileSync(filePath, JSON.stringify(saveUser));
+
+        }
+
+        if(message.content === '잔액') {
+          user.id ? message.reply(`${name}의 현재 잔액은 \`${user.money}\`원이야!`) : message.reply("등록되지 않은 유저야! `돈받기`를 입력해봐!");
+        }
     }
     else {
       message.reply(`${name}!! 시작하는걸 환영해! \`${howMuch}원\`이 지급됐어!`)
