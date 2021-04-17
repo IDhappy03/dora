@@ -16,26 +16,6 @@ client.on('ready', () => {
 
 });
 
-const convertImoticon = (who) => {
-  if(who === "가위"){
-    return "✌️"
-  }
-  else if(who === "보") {
-    return "✋"
-  }
-  else if(who === "바위") {
-    return "✊"
-  }
-  else if(who === "rkdnl") {
-    return "✌️"
-  }
-  else if(who === "qkdnl") {
-    return "✊"
-  }
-  else if(who === "qh") {
-    return "✋"
-  }
-}
 
 client.on('message', (message) => {
   if(message.author.bot) return;
@@ -126,33 +106,7 @@ client.on('message', (message) => {
   if(message.author.bot) return;
   if(message.author.id === client.user.id) return;
 
-  if(message.content === "가위" || message.content === "바위" || message.content === "보" || message.content === "rkdnl" || message.content === "qkdnl" || message.content === "qh") {
-    const human = message.content;
-    const list = ["가위", "바위", "보"]
-    const random = Math.floor(Math.random() * 3);
 
-    const bot = list[random]
-
-    let winner = "";
-    if(human === bot) {
-      winner = "비김"
-    }
-    else {
-      human === "가위" ? (winner = bot === "바위" ? "봇" : "인간") : "";
-      human === "바위" ? (winner = bot === "보" ? "봇" : "인간") : "";
-      human === "보" ? (winner = bot === "가위" ? "봇" : "인간") : "";
-      human === "rkdnl" ? (winner = bot === "바위" ? "봇" : "인간") : "";
-      human === "qkdnl" ? (winner = bot === "보" ? "봇" : "인간") : "";
-      human === "qh" ? (winner = bot === "가위" ? "봇" : "인간") : "";
-    }
-
-    const result = 
-    `
-    사람 : \`${convertImoticon(human)}\` vs 봇 : \`${convertImoticon(bot)}\`
-    ${winner === "비김" ? "우리는 비겼다 인간." : winner + "의 승리다"}
-    `
-    message.reply(result);
-  }
 
   if (message.content ===  `!!핑`) {
     if(message.channel.type == 'dm')
